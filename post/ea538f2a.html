@@ -1,0 +1,755 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Java基础语法 | 妙妙屋</title><meta name="author" content="Wuqiuxu"><meta name="copyright" content="Wuqiuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="一、注释 单行注释：以 &#x2F;&#x2F;开头，以换行结束  1&#x2F;&#x2F; 注释内容   多行注释：以 &#x2F;*开头，以*&#x2F;结束  123&#x2F;*	注释内容 *&#x2F;   文档注释：以&#x2F;**开头，以*&#x2F;结束，Java特有的注释   @author 标明开发该类模块的作者，多个作者之间使用,分割  @version 标明该类模块的版本   @see 参考转向，也就是相关主题   @since 从哪个版本开始增加的   只用于方法的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础语法">
+<meta property="og:url" content="http://example.com/post/ea538f2a.html">
+<meta property="og:site_name" content="妙妙屋">
+<meta property="og:description" content="一、注释 单行注释：以 &#x2F;&#x2F;开头，以换行结束  1&#x2F;&#x2F; 注释内容   多行注释：以 &#x2F;*开头，以*&#x2F;结束  123&#x2F;*	注释内容 *&#x2F;   文档注释：以&#x2F;**开头，以*&#x2F;结束，Java特有的注释   @author 标明开发该类模块的作者，多个作者之间使用,分割  @version 标明该类模块的版本   @see 参考转向，也就是相关主题   @since 从哪个版本开始增加的   只用于方法的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/java.png">
+<meta property="article:published_time" content="2023-06-20T13:46:30.000Z">
+<meta property="article:modified_time" content="2023-06-20T13:54:41.701Z">
+<meta property="article:author" content="Wuqiuxu">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/Psyduck.png"><link rel="shortcut icon" href="/img/Psyduck.png"><link rel="canonical" href="http://example.com/post/ea538f2a.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?5bacdf5f7eaeeca2624a134c063a96c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"V9Z0XHM9DP","apiKey":"fa27b7a048b6171f01dadf98cba8a3fd","indexName":"blog","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":0,"languages":{"author":"作者: Wuqiuxu","link":"链接: ","source":"来源: 妙妙屋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java基础语法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-20 21:54:41'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4125923_iosihe4hf8q.css"><link rel="stylesheet" href="/css/myCss.css"><script src="https://code.jquery.com/jquery-1.7.2.min.js"></script><script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/planet/"><i class="fa-fw fa-solid fa-book"></i><span> 知识星球</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 创作集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/crawler/"><i class="fa-fw fa-solid fa-spider"></i><span> 爬虫</span></a></li><li><a class="site-page child" href="/datadev/"><i class="fa-fw fa-solid fa-database"></i><span> 数据开发</span></a></li><li><a class="site-page child" href="/dataanal/"><i class="fa-fw fa-solid fa-chart-simple"></i><span> 数据分析</span></a></li><li><a class="site-page child" href="/improve/"><i class="fa-fw fa-solid fa-clock"></i><span> 工作提效</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 归档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-book"></i><span> 文档&amp;工具</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/default.png')"><nav id="nav"><span id="blog-info"><a href="/" title="妙妙屋"><img class="site-icon" src="/img/Psyduck.png"/><span class="site-name">妙妙屋</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/planet/"><i class="fa-fw fa-solid fa-book"></i><span> 知识星球</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 创作集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/crawler/"><i class="fa-fw fa-solid fa-spider"></i><span> 爬虫</span></a></li><li><a class="site-page child" href="/datadev/"><i class="fa-fw fa-solid fa-database"></i><span> 数据开发</span></a></li><li><a class="site-page child" href="/dataanal/"><i class="fa-fw fa-solid fa-chart-simple"></i><span> 数据分析</span></a></li><li><a class="site-page child" href="/improve/"><i class="fa-fw fa-solid fa-clock"></i><span> 工作提效</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 归档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-book"></i><span> 文档&amp;工具</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java基础语法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-20T13:46:30.000Z" title="发表于 2023-06-20 21:46:30">2023-06-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-20T13:54:41.701Z" title="更新于 2023-06-20 21:54:41">2023-06-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Java基础语法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="一、注释"><a href="#一、注释" class="headerlink" title="一、注释"></a>一、注释</h2><ul>
+<li>单行注释：以 <code>//</code>开头，以<code>换行</code>结束</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注释内容</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>多行注释：以 <code>/*</code>开头，以<code>*/</code>结束</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	注释内容</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>文档注释：以<code>/**</code>开头，以<code>*/</code>结束，Java特有的注释</p>
+</li>
+<li><ul>
+<li><code>@author</code> 标明开发该类模块的作者，多个作者之间使用<code>,</code>分割 </li>
+<li><code>@version</code> 标明该类模块的版本  </li>
+<li><code>@see</code> 参考转向，也就是相关主题  </li>
+<li><code>@since</code> 从哪个版本开始增加的  </li>
+<li>只用于方法的注释：</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><code>@param 形参名 形参类型 形参说明</code> 对方法中某参数的说明，可并列多个</li>
+<li><code>@return 返回值类型 返回值说明</code> 对方法返回值的说明</li>
+<li><code>@exception 异常类型 异常说明</code>&#x2F;<code>@throws 异常类型 异常说明</code> 对方法可能抛出的异常进行说明，可并列多个</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li>使用javadoc工具可以基于文档注释生成API文档：<code>javadoc [options] [packagenames] [sourcefiles] [@files]</code>（例：<code>javadoc -author -d doc Comments.java</code>）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	注释内容</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Comments</span>&#123;</span><br><span class="line">    </span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	Java程序的入口</span></span><br><span class="line"><span class="comment">	<span class="doctag">@param</span> String[] args main方法的命令参数</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、关键字"><a href="#二、关键字" class="headerlink" title="二、关键字"></a>二、关键字</h2><ul>
+<li>关键字：Java已经定义好的单词，具有特殊含义</li>
+<li>关键字全部都是小写字母</li>
+<li>关键字一共50个，其中<code>const</code>和<code>goto</code>是保留字</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/22414596/1677812892165-8cc44f0a-531b-4886-bb54-03b4f2bad2ed.png" alt="img"></p>
+<h2 id="三、标识符"><a href="#三、标识符" class="headerlink" title="三、标识符"></a>三、标识符</h2><ul>
+<li>标识符：给类、变量、方法、包等命名的字符序列</li>
+</ul>
+<h3 id="1、标识符的命名规则"><a href="#1、标识符的命名规则" class="headerlink" title="1、标识符的命名规则"></a>1、标识符的命名规则</h3><p>（1）Java的标识符只能使用26个<code>英文字母大小写</code>，<code>0-9</code>的数字，下划线<code>_</code>，美元符号<code>$</code></p>
+<p>（2）不能使用Java的关键字（包含保留字）和特殊值</p>
+<p>（3）数字不能开头</p>
+<p>（4）不能包含空格</p>
+<p>（5）严格区分大小写</p>
+<h3 id="2、标识符的命名规范"><a href="#2、标识符的命名规范" class="headerlink" title="2、标识符的命名规范"></a>2、标识符的命名规范</h3><p>（1）见名知意</p>
+<p>（2）类名、接口名等：每个单词的首字母都大写，形式：<code>XxxYyyZzz</code></p>
+<p>（3）变量、方法名等：从第二个单词开始首字母大写，其余字母小写，形式：<code>xxxYyyZzz</code></p>
+<p>（4）包名等：每一个单词都小写，单词之间使用点.分割，形式：<code>xxx.yyy.zzz</code></p>
+<p>（5）常量名等：每一个单词都大写，单词之间使用下划线_分割，形式：<code>XXX_YYY_ZZZ</code></p>
+<h2 id="四、数据类型"><a href="#四、数据类型" class="headerlink" title="四、数据类型"></a>四、数据类型</h2><ul>
+<li><p><strong>基本数据类型</strong>：包括 <code>整数</code>、<code>浮点数</code>、<code>字符</code>、<code>布尔</code></p>
+</li>
+<li><ul>
+<li>float：单精度浮点型，精度：科学记数法的小数点后6~7位</li>
+<li>double：双精度浮点型，精度：科学记数法的小数点后15~16位</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/22414596/1677831653593-abd78e05-7b23-4275-abf8-22aa9bf89ae8.png" alt="img"></p>
+<ul>
+<li><strong>引用数据类型</strong>：包括<code>数组</code>、 <code>类</code>、<code>接口</code>、<code>枚举</code>、<code>注解</code></li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/22414596/1677813111427-22171f7d-927e-45c8-8ad1-13e24a846df1.png" alt="img"></p>
+<h2 id="五、常量值"><a href="#五、常量值" class="headerlink" title="五、常量值"></a>五、常量值</h2><ul>
+<li>常量值：在程序执行的过程中，其值不可以发生改变</li>
+</ul>
+<p>Java中的输入的整数常量值默认为int类型，浮点常量值默认为double类型</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>规则</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>整数常量值</td>
+<td>要表示long类型，必须加<code>L</code>或<code>l</code></td>
+<td>12，-23, 1567844444557L</td>
+</tr>
+<tr>
+<td>浮点常量值</td>
+<td>要表示float类型，必须加<code>F</code>或<code>f</code></td>
+<td>12.34F，12.34</td>
+</tr>
+<tr>
+<td>字符常量值</td>
+<td>必须使用单引号，单引号中有且只能有一个字符</td>
+<td>‘a’，’0’，’尚’</td>
+</tr>
+<tr>
+<td>布尔常量值</td>
+<td><code>true</code>或者<code>false</code></td>
+<td>true，false</td>
+</tr>
+<tr>
+<td>字符串常量值</td>
+<td>必须使用双引号，双引号中可以没有其他字符，表示空字符串</td>
+<td>“HelloWorld”</td>
+</tr>
+</tbody></table>
+<h2 id="六、变量"><a href="#六、变量" class="headerlink" title="六、变量"></a>六、变量</h2><ul>
+<li><p>变量：在程序执行的过程中，其值可以发生改变的量</p>
+</li>
+<li><p>变量的作用：用来存储数据，代表内存的一块存储区域，这块内存中的值是可以改变的</p>
+</li>
+<li><p>变量的声明格式：<code>数据类型 变量名;</code>，变量的数据类型可以是基本数据类型，也可以是引用数据类型</p>
+</li>
+<li><p>变量的赋值：<code>变量名 = 值;</code>，给变量赋的值类型必须与变量声明的类型一致或兼容</p>
+</li>
+<li><p>变量的三要素</p>
+</li>
+<li><ul>
+<li>数据类型</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>决定在内存中开辟多大空间</li>
+<li>决定该变量可以存什么值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li>变量名：见名知意非常重要</li>
+<li>值</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>基本数据类型的变量：存储数据值 </li>
+<li>引用数据类型的变量：存储地址值，即对象的首地址（例：String类型）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>使用变量的注意事项</p>
+</li>
+<li><ul>
+<li>先声明后使用</li>
+<li>在使用之前必须初始化</li>
+<li>变量有作用域，且在同一个作用域中不能重名</li>
+<li>变量值的类型必须与变量声明的类型一致或兼容</li>
+</ul>
+</li>
+</ul>
+<h2 id="七、最终变量-x2F-常量"><a href="#七、最终变量-x2F-常量" class="headerlink" title="七、最终变量&#x2F;常量"></a>七、最终变量&#x2F;常量</h2><ul>
+<li>最终变量：不能修改值的变量，格式：<code>final 数据类型 变量名;</code> </li>
+<li>最终变量名通常称为常量名</li>
+</ul>
+<h2 id="八、基本数据类型转换"><a href="#八、基本数据类型转换" class="headerlink" title="八、基本数据类型转换"></a>八、基本数据类型转换</h2><p>Java语言所提供的<strong>七种数值类型</strong>之间可以相互转换（boolean类型不参与）</p>
+<h3 id="1、自动类型转换（隐式类型转换）"><a href="#1、自动类型转换（隐式类型转换）" class="headerlink" title="1、自动类型转换（隐式类型转换）"></a>1、自动类型转换（隐式类型转换）</h3><ul>
+<li><p>自动类型转换：将<code>取值范围小的类型</code>自动提升为<code>取值范围大的类型</code></p>
+</li>
+<li><ul>
+<li>当把存储范围小的值赋值给存储范围大的变量时，会自动转换为存储范围大的类型</li>
+<li>当存储范围小的数据类型与存储范围大的数据类型一起混合运算时，会按照其中最大的类型运算</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>当<code>byte</code>,<code>short</code>,<code>char</code>数据类型进行算术运算时，会按照int类型处理</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/22414596/1677832428737-95619f31-10b8-4ab3-a36f-e954329792fc.png" alt="img"></p>
+<h3 id="2、强制类型转换（显示类型转换）"><a href="#2、强制类型转换（显示类型转换）" class="headerlink" title="2、强制类型转换（显示类型转换）"></a>2、强制类型转换（显示类型转换）</h3><ul>
+<li><p>强制转换格式：<code>数据类型 变量名 = （数据类型）被强转数据值;</code></p>
+</li>
+<li><ul>
+<li>当把存储范围大的值赋值给存储范围小的变量时，需要强制类型转换（有风险，可能会损失精度或溢出）</li>
+<li>当某个值想要提升数据类型时，也可以使用强制类型转换</li>
+</ul>
+</li>
+</ul>
+<h3 id="3、基本数据类型与字符串类型的转换"><a href="#3、基本数据类型与字符串类型的转换" class="headerlink" title="3、基本数据类型与字符串类型的转换"></a>3、基本数据类型与字符串类型的转换</h3><p>1、任意数据类型的数据与String类型进行“+”运算时，结果一定是String类型</p>
+<p>2、String类型不能通过强制类型转换为其他的类型</p>
+<h2 id="九、运算符"><a href="#九、运算符" class="headerlink" title="九、运算符"></a>九、运算符</h2><ul>
+<li><p>在Java中，一共有38个运算符</p>
+</li>
+<li><p>运算符的分类</p>
+</li>
+<li><ul>
+<li>按照功能分</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>运算符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>算术运算符（7个）</td>
+<td>+、-、*、&#x2F;、%、++、–</td>
+</tr>
+<tr>
+<td>赋值运算符（12个）</td>
+<td>&#x3D;、+&#x3D;、-&#x3D;、*&#x3D;、&#x2F;&#x3D;、%&#x3D;、&gt;&gt;&#x3D;、&lt;&lt;&#x3D;、&gt;&gt;&gt;&#x3D;、&amp;&#x3D;、|&#x3D;、^&#x3D;等</td>
+</tr>
+<tr>
+<td>关系运算符（6个）</td>
+<td>&gt;、&gt;&#x3D;、&lt;、&lt;&#x3D;、&#x3D;&#x3D;、!&#x3D;</td>
+</tr>
+<tr>
+<td>逻辑运算符（6个）</td>
+<td>&amp;、|、^、!、&amp;&amp;、||</td>
+</tr>
+<tr>
+<td>条件运算符（2个）</td>
+<td>(条件表达式)?结果1:结果2</td>
+</tr>
+<tr>
+<td>位运算符（7个）</td>
+<td>&amp;、|、^、~、&lt;&lt;、&gt;&gt;、&gt;&gt;&gt;</td>
+</tr>
+<tr>
+<td>Lambda运算符（1个）</td>
+<td>-&gt;</td>
+</tr>
+</tbody></table>
+<ul>
+<li><ul>
+<li>按照操作数个数分</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>运算符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一元运算符（单目运算符）</td>
+<td>正号（+）、负号（-）、++、–、!、~</td>
+</tr>
+<tr>
+<td>二元运算符（双目运算符）</td>
+<td>除了一元和三元运算符剩下的都是二元运算符</td>
+</tr>
+<tr>
+<td>三元运算符 （三目运算符）</td>
+<td>(条件表达式)?结果1:结果2</td>
+</tr>
+</tbody></table>
+<h3 id="1、算术运算符"><a href="#1、算术运算符" class="headerlink" title="1、算术运算符"></a>1、算术运算符</h3><table>
+<thead>
+<tr>
+<th>算术运算符</th>
+<th>符号解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>+</code></td>
+<td>加法运算，正号，字符串连接运算</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>减法运算，负号</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>乘法运算</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>除法运算（整数&#x2F;整数结果为整数）</td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>求余运算（余数的符号只看被除数）</td>
+</tr>
+<tr>
+<td><code>++``--</code></td>
+<td>自增自减运算<code>++变量</code> ：先自身加1，然后再参与运算<code>变量++</code> ：先参与运算，然后自身加1</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OperatorDemo03</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i++ + ++i * i++;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        从左往右加载</span></span><br><span class="line"><span class="comment">        (1)先算i++</span></span><br><span class="line"><span class="comment">        ①取i的值“1”放操作数栈</span></span><br><span class="line"><span class="comment">        ②i再自增 i=2</span></span><br><span class="line"><span class="comment">        （2）再算++i</span></span><br><span class="line"><span class="comment">        ①i先自增 i=3</span></span><br><span class="line"><span class="comment">        ②再取i的值“3”放操作数栈</span></span><br><span class="line"><span class="comment">        （3）再算i++</span></span><br><span class="line"><span class="comment">        ①取i的值“3”放操作数栈</span></span><br><span class="line"><span class="comment">        ②i再自增 i=4</span></span><br><span class="line"><span class="comment">        （4）先算乘法</span></span><br><span class="line"><span class="comment">        用操作数栈中3 * 3 = 9，并把9压会操作数栈</span></span><br><span class="line"><span class="comment">        （5）再算求和</span></span><br><span class="line"><span class="comment">        用操作数栈中的 1 + 9 = 10</span></span><br><span class="line"><span class="comment">        （6）最后算赋值</span></span><br><span class="line"><span class="comment">        j = 10</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、关系运算符-x2F-比较运算符"><a href="#2、关系运算符-x2F-比较运算符" class="headerlink" title="2、关系运算符&#x2F;比较运算符"></a>2、关系运算符&#x2F;比较运算符</h3><ul>
+<li><p>比较运算符：两个数据之间进行比较的运算，运算结果一定是boolean值</p>
+</li>
+<li><ul>
+<li><code>&gt;</code>，<code>&lt;</code>，<code>&gt;=</code>，<code>&lt;=</code>不支持<code>boolean</code>，<code>String</code>类型</li>
+<li><code>!=</code>、<code>==</code>不建议用于引用数据类型</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>关系运算符</th>
+<th>符号解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;</code></td>
+<td>小于</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>大于</td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td><code>==</code></td>
+<td>等于</td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>不等于</td>
+</tr>
+</tbody></table>
+<h3 id="3、逻辑运算符"><a href="#3、逻辑运算符" class="headerlink" title="3、逻辑运算符"></a>3、逻辑运算符</h3><ul>
+<li>逻辑运算符：用来连接两个布尔类型值的运算符（<code>!</code>除外），运算结果也是boolean值</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>逻辑运算符</th>
+<th>符号解释</th>
+<th>符号特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&amp;</code></td>
+<td>逻辑与</td>
+<td>有<code>false</code>则<code>false</code></td>
+</tr>
+<tr>
+<td>&#96;</td>
+<td>&#96;</td>
+<td>逻辑或</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>逻辑异或</td>
+<td>相同为<code>false</code>，不同为<code>true</code></td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>非</td>
+<td>非<code>false</code>则<code>true</code>，非<code>true</code>则<code>false</code></td>
+</tr>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>双与&#x2F;短路与</td>
+<td>左边为<code>false</code>，则右边就不看</td>
+</tr>
+<tr>
+<td>&#96;</td>
+<td></td>
+<td>&#96;</td>
+</tr>
+</tbody></table>
+<p><code>&amp;&amp;</code>、<code>||</code>比<code>&amp;</code>、<code>|</code>效率高</p>
+<h3 id="4、条件运算符"><a href="#4、条件运算符" class="headerlink" title="4、条件运算符"></a>4、条件运算符</h3><ul>
+<li><p>条件运算符格式：<code>条件表达式 ? 结果1 : 结果2</code></p>
+</li>
+<li><p>条件运算符计算方式： </p>
+</li>
+<li><ul>
+<li>若条件判断的结果为<code>true</code>，则取结果1</li>
+<li>若条件判断的结果为<code>false</code>，则取结果2</li>
+</ul>
+</li>
+</ul>
+<h3 id="5、位运算符"><a href="#5、位运算符" class="headerlink" title="5、位运算符"></a>5、位运算符</h3><ul>
+<li><p>位运算符的运算过程都是基于补码运算，结果需要转换为原码，再转换为十进制</p>
+</li>
+<li><ul>
+<li><code>byte</code>,<code>short</code>,<code>char</code>在计算时按照<code>int</code>类型处理</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>位运算符</th>
+<th>符号解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&amp;</code></td>
+<td>按位与（当两位均为1时才返回1）</td>
+</tr>
+<tr>
+<td>&#96;</td>
+<td>&#96;</td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>按位非（将操作数包含符号位的每一位全部取反）</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>按位异或（当两位相同时返回0，不同时返回1）</td>
+</tr>
+<tr>
+<td><code>&lt;&lt;</code></td>
+<td>左移运算符</td>
+</tr>
+<tr>
+<td><code>&gt;&gt;</code></td>
+<td>右移运算符</td>
+</tr>
+<tr>
+<td><code>&gt;&gt;&gt;</code></td>
+<td>无符号右移运算符，空位补0</td>
+</tr>
+</tbody></table>
+<h3 id="6、赋值运算符"><a href="#6、赋值运算符" class="headerlink" title="6、赋值运算符"></a>6、赋值运算符</h3><ul>
+<li>扩展赋值运算符在将最后的结果赋值给左边的变量前，多做了一步强制类型转换</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>符号解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x3D;</td>
+<td>将右边的常量值&#x2F;变量值&#x2F;表达式的值，赋值给左边的变量</td>
+</tr>
+<tr>
+<td>+&#x3D;</td>
+<td>将左边变量的值和右边的常量值&#x2F;变量值&#x2F;表达式的值进行相加，最后将结果赋值给左边的变量</td>
+</tr>
+<tr>
+<td>-&#x3D;</td>
+<td>将左边变量的值和右边的常量值&#x2F;变量值&#x2F;表达式的值进行相减，最后将结果赋值给左边的变量</td>
+</tr>
+<tr>
+<td>*&#x3D;</td>
+<td>将左边变量的值和右边的常量值&#x2F;变量值&#x2F;表达式的值进行相乘，最后将结果赋值给左边的变量</td>
+</tr>
+<tr>
+<td>&#x2F;&#x3D;</td>
+<td>将左边变量的值和右边的常量值&#x2F;变量值&#x2F;表达式的值进行相除，最后将结果赋值给左边的变量</td>
+</tr>
+<tr>
+<td>%&#x3D;</td>
+<td>将左边变量的值和右边的常量值&#x2F;变量值&#x2F;表达式的值进行相模，最后将结果赋值给左边的变量</td>
+</tr>
+<tr>
+<td>&lt;&lt;&#x3D;</td>
+<td>将左边变量的值左移右边常量&#x2F;变量值&#x2F;表达式的值的相应位，最后将结果赋值给左边的变量</td>
+</tr>
+<tr>
+<td>&gt;&gt;&#x3D;</td>
+<td>将左边变量的值右移右边常量&#x2F;变量值&#x2F;表达式的值的相应位，最后将结果赋值给左边的变量</td>
+</tr>
+<tr>
+<td>&gt;&gt;&gt;&#x3D;</td>
+<td>将左边变量的值无符号右移右边常量&#x2F;变量值&#x2F;表达式的值的相应位，最后将结果赋值给左边的变量</td>
+</tr>
+<tr>
+<td>&amp;&#x3D;</td>
+<td>将左边变量的值和右边的常量值&#x2F;变量值&#x2F;表达式的值进行按位与，最后将结果赋值给左边的变量</td>
+</tr>
+<tr>
+<td>|&#x3D;</td>
+<td>将左边变量的值和右边的常量值&#x2F;变量值&#x2F;表达式的值进行按位或，最后将结果赋值给左边的变量</td>
+</tr>
+<tr>
+<td>^&#x3D;</td>
+<td>将左边变量的值和右边的常量值&#x2F;变量值&#x2F;表达式的值进行按位异或，最后将结果赋值给左边的变量</td>
+</tr>
+</tbody></table>
+<h3 id="7、运算符优先级"><a href="#7、运算符优先级" class="headerlink" title="7、运算符优先级"></a>7、运算符优先级</h3><p>单目运算排第一；</p>
+<p>乘除余二加减三；</p>
+<p>移位四，关系五；</p>
+<p>等和不等排第六；</p>
+<p>位与、异或和位或；</p>
+<p>短路与和短路或；</p>
+<p>依次从七到十一；</p>
+<p>条件排在第十二；</p>
+<p>赋值一定是最后；</p>
+<h2 id="十、不同数据类型表示原理"><a href="#十、不同数据类型表示原理" class="headerlink" title="十、不同数据类型表示原理"></a>十、不同数据类型表示原理</h2><p>1、布尔类型</p>
+<ul>
+<li>true：底层使用1表示</li>
+<li>false：底层使用0表示</li>
+</ul>
+<p>2、整型</p>
+<ul>
+<li><p>使用补码形式存储，最高位是符号位（1代表负数，0代表正数）</p>
+</li>
+<li><ul>
+<li>正整数：三码合一（补码、反码、原码都一样）</li>
+<li>负整数：</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>原码：十进制转为二进制，最高位设置为1</li>
+<li>反码：在原码的基础上，最高位不变，其余位取反</li>
+<li>补码：反码+1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>3、小数</p>
+<ul>
+<li><p>把小数转为二进制，然后把二进制表示为科学记数法</p>
+</li>
+<li><ul>
+<li>①符号位</li>
+<li>②指数位（需要移位）</li>
+<li>③尾数位</li>
+</ul>
+</li>
+</ul>
+<p>4、字符</p>
+<ul>
+<li>每一个字符对应一个唯一的Unicode编码值（0~65535）</li>
+<li>在JVM内存中，一个字符占2个字节</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Wuqiuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/post/ea538f2a.html">http://example.com/post/ea538f2a.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">妙妙屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a></div><div class="post_share"><div class="social-share" data-image="/img/java.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/41201b24.html" title="Java流程控制"><img class="cover" src="/img/java.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java流程控制</div></div></a></div><div class="next-post pull-right"><a href="/post/1113d944.html" title="Java概述"><img class="cover" src="/img/java.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java概述</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/59ae8782.html" title="Java IO流"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java IO流</div></div></a></div><div><a href="/post/fa358471.html" title="Java反射"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java反射</div></div></a></div><div><a href="/post/a2c3ad19.html" title="Java多线程"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java多线程</div></div></a></div><div><a href="/post/1630b670.html" title="Java常用API"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java常用API</div></div></a></div><div><a href="/post/e3345db4.html" title="Java数组"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java数组</div></div></a></div><div><a href="/post/f495a96f.html" title="Java异常"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java异常</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wuqiuxu</div><div class="author-info__description">鸟随鸾凤飞腾远</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wuqiuxu" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fa-brands fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://i.postimg.cc/660kspWH/image.jpg" rel="external nofollow noreferrer" target="_blank" title="Wechat"><i class="fa-brands fa-weixin" style="color: #05DC6C;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%B3%A8%E9%87%8A"><span class="toc-number">1.</span> <span class="toc-text">一、注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">2.</span> <span class="toc-text">二、关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text">三、标识符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">3.1.</span> <span class="toc-text">1、标识符的命名规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-number">3.2.</span> <span class="toc-text">2、标识符的命名规范</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">四、数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%B8%B8%E9%87%8F%E5%80%BC"><span class="toc-number">5.</span> <span class="toc-text">五、常量值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%8F%98%E9%87%8F"><span class="toc-number">6.</span> <span class="toc-text">六、变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%9C%80%E7%BB%88%E5%8F%98%E9%87%8F-x2F-%E5%B8%B8%E9%87%8F"><span class="toc-number">7.</span> <span class="toc-text">七、最终变量&#x2F;常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">8.</span> <span class="toc-text">八、基本数据类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%88%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%89"><span class="toc-number">8.1.</span> <span class="toc-text">1、自动类型转换（隐式类型转换）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%88%E6%98%BE%E7%A4%BA%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%89"><span class="toc-number">8.2.</span> <span class="toc-text">2、强制类型转换（显示类型转换）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">8.3.</span> <span class="toc-text">3、基本数据类型与字符串类型的转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">9.</span> <span class="toc-text">九、运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">9.1.</span> <span class="toc-text">1、算术运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6-x2F-%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">9.2.</span> <span class="toc-text">2、关系运算符&#x2F;比较运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">9.3.</span> <span class="toc-text">3、逻辑运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">9.4.</span> <span class="toc-text">4、条件运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">9.5.</span> <span class="toc-text">5、位运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">9.6.</span> <span class="toc-text">6、赋值运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">9.7.</span> <span class="toc-text">7、运算符优先级</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E4%B8%8D%E5%90%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%A1%A8%E7%A4%BA%E5%8E%9F%E7%90%86"><span class="toc-number">10.</span> <span class="toc-text">十、不同数据类型表示原理</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/1630b670.html" title="Java常用API"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java常用API"/></a><div class="content"><a class="title" href="/post/1630b670.html" title="Java常用API">Java常用API</a><time datetime="2023-06-20T13:48:19.000Z" title="发表于 2023-06-20 21:48:19">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/4ea1809c.html" title="Java正则表达式"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java正则表达式"/></a><div class="content"><a class="title" href="/post/4ea1809c.html" title="Java正则表达式">Java正则表达式</a><time datetime="2023-06-20T13:48:11.000Z" title="发表于 2023-06-20 21:48:11">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/fa358471.html" title="Java反射"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java反射"/></a><div class="content"><a class="title" href="/post/fa358471.html" title="Java反射">Java反射</a><time datetime="2023-06-20T13:48:00.000Z" title="发表于 2023-06-20 21:48:00">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/3a3aa666.html" title="Java网络编程"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java网络编程"/></a><div class="content"><a class="title" href="/post/3a3aa666.html" title="Java网络编程">Java网络编程</a><time datetime="2023-06-20T13:47:56.000Z" title="发表于 2023-06-20 21:47:56">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/59ae8782.html" title="Java IO流"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java IO流"/></a><div class="content"><a class="title" href="/post/59ae8782.html" title="Java IO流">Java IO流</a><time datetime="2023-06-20T13:47:50.000Z" title="发表于 2023-06-20 21:47:50">2023-06-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/default.png')"><div id="footer-wrap"><div class="copyright">&copy;2023 By Wuqiuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addModeChange('mermaid', runMermaid)
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>

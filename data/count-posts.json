@@ -1,9 +1,9 @@
 {
-  "countTotal": 9,
+  "countTotal": 24,
   "countByDay": {
     "2023-06-19": 6,
-    "2023-06-16": 2,
-    "2023-06-20": 1
+    "2023-06-20": 16,
+    "2023-06-16": 2
   },
   "countByDayArray": [
     {
@@ -11,41 +11,45 @@
       "count": 6
     },
     {
-      "date": "2023-06-16",
-      "count": 2
+      "date": "2023-06-20",
+      "count": 16
     },
     {
-      "date": "2023-06-20",
-      "count": 1
+      "date": "2023-06-16",
+      "count": 2
     }
   ],
   "countByMonth": {
-    "2023-06": 9
+    "2023-06": 24
   },
   "countByMonthArray": [
     {
       "date": "2023-06",
-      "count": 9
+      "count": 24
     }
   ],
   "countByYear": {
-    "2023": 9
+    "2023": 24
   },
   "countByYearArray": [
     {
       "date": "2023",
-      "count": 9
+      "count": 24
     }
   ],
-  "countCates": 7,
+  "countCates": 8,
   "countByCate": [
+    {
+      "value": 1,
+      "name": "数据库"
+    },
     {
       "value": 1,
       "name": "开发工具"
     },
     {
-      "value": 1,
-      "name": "数据库"
+      "value": 15,
+      "name": "编程语言"
     },
     {
       "value": 1,
@@ -68,7 +72,7 @@
       "name": "web开发"
     },
     {
-      "value": 9,
+      "value": 24,
       "itemStyle": {
         "color": "none",
         "decal": {
@@ -80,13 +84,16 @@
       }
     }
   ],
-  "countTags": 14,
+  "countTags": 15,
   "countByTag": [
+    {
+      "HBase": 1
+    },
     {
       "IDEA": 1
     },
     {
-      "HBase": 1
+      "Java": 15
     },
     {
       "Pandas": 1
@@ -107,12 +114,6 @@
       "kafka": 1
     },
     {
-      "selenium": 1
-    },
-    {
-      "python": 2
-    },
-    {
       "Hexo": 1
     },
     {
@@ -122,6 +123,12 @@
       "Markdown": 1
     },
     {
+      "selenium": 1
+    },
+    {
+      "python": 2
+    },
+    {
       "django": 1
     }
   ],
@@ -129,127 +136,136 @@
     "nodes": [
       {
         "id": 1,
-        "category": "IDEA",
-        "symbolSize": 10,
-        "x": 164,
-        "y": -14,
-        "value": 1,
-        "name": "IDEA"
-      },
-      {
-        "id": 2,
         "category": "HBase",
-        "symbolSize": 10,
-        "x": -191,
-        "y": 198,
+        "symbolSize": 5,
+        "x": 98,
+        "y": -31,
         "value": 1,
         "name": "HBase"
       },
       {
+        "id": 2,
+        "category": "IDEA",
+        "symbolSize": 5,
+        "x": 234,
+        "y": -225,
+        "value": 1,
+        "name": "IDEA"
+      },
+      {
         "id": 3,
+        "category": "Java",
+        "symbolSize": 75,
+        "x": -149,
+        "y": -190,
+        "value": 15,
+        "name": "Java"
+      },
+      {
+        "id": 4,
         "category": "Pandas",
-        "symbolSize": 10,
-        "x": 116,
-        "y": -121,
+        "symbolSize": 5,
+        "x": -63,
+        "y": -54,
         "value": 1,
         "name": "Pandas"
       },
       {
-        "id": 4,
+        "id": 5,
         "category": "Python",
-        "symbolSize": 20,
-        "x": 137,
-        "y": -55,
+        "symbolSize": 10,
+        "x": -298,
+        "y": 164,
         "value": 2,
         "name": "Python"
       },
       {
-        "id": 5,
+        "id": 6,
         "category": "Request Python",
-        "symbolSize": 10,
-        "x": -288,
-        "y": 50,
+        "symbolSize": 5,
+        "x": 95,
+        "y": -184,
         "value": 1,
         "name": "Request Python"
       },
       {
-        "id": 6,
+        "id": 7,
         "category": "Shell",
-        "symbolSize": 10,
-        "x": 157,
-        "y": -267,
+        "symbolSize": 5,
+        "x": -291,
+        "y": 96,
         "value": 1,
         "name": "Shell"
       },
       {
-        "id": 7,
+        "id": 8,
         "category": "Linux",
-        "symbolSize": 10,
-        "x": -113,
-        "y": 229,
+        "symbolSize": 5,
+        "x": -271,
+        "y": 66,
         "value": 1,
         "name": "Linux"
       },
       {
-        "id": 8,
+        "id": 9,
         "category": "kafka",
-        "symbolSize": 10,
-        "x": 139,
-        "y": -14,
+        "symbolSize": 5,
+        "x": -232,
+        "y": -52,
         "value": 1,
         "name": "kafka"
       },
       {
-        "id": 9,
-        "category": "selenium",
-        "symbolSize": 10,
-        "x": 38,
-        "y": -93,
-        "value": 1,
-        "name": "selenium"
-      },
-      {
         "id": 10,
-        "category": "python",
-        "symbolSize": 20,
-        "x": -227,
-        "y": 180,
-        "value": 2,
-        "name": "python"
-      },
-      {
-        "id": 11,
         "category": "Hexo",
-        "symbolSize": 10,
-        "x": -269,
-        "y": 262,
+        "symbolSize": 5,
+        "x": 268,
+        "y": 272,
         "value": 1,
         "name": "Hexo"
       },
       {
-        "id": 12,
+        "id": 11,
         "category": "Javascript",
-        "symbolSize": 10,
-        "x": -259,
-        "y": 40,
+        "symbolSize": 5,
+        "x": -25,
+        "y": -157,
         "value": 1,
         "name": "Javascript"
       },
       {
-        "id": 13,
+        "id": 12,
         "category": "Markdown",
-        "symbolSize": 10,
-        "x": 70,
-        "y": -74,
+        "symbolSize": 5,
+        "x": -158,
+        "y": 121,
         "value": 1,
         "name": "Markdown"
       },
       {
+        "id": 13,
+        "category": "selenium",
+        "symbolSize": 5,
+        "x": -180,
+        "y": 103,
+        "value": 1,
+        "name": "selenium"
+      },
+      {
         "id": 14,
-        "category": "django",
+        "category": "python",
         "symbolSize": 10,
-        "x": 85,
-        "y": -244,
+        "x": 242,
+        "y": -212,
+        "value": 2,
+        "name": "python"
+      },
+      {
+        "id": 15,
+        "category": "django",
+        "symbolSize": 5,
+        "x": -158,
+        "y": -183,
         "value": 1,
         "name": "django"
       }
@@ -310,14 +326,21 @@
       {
         "source": 14,
         "target": 14
+      },
+      {
+        "source": 15,
+        "target": 15
       }
     ],
     "categories": [
       {
+        "name": "HBase"
+      },
+      {
         "name": "IDEA"
       },
       {
-        "name": "HBase"
+        "name": "Java"
       },
       {
         "name": "Pandas"
@@ -338,12 +361,6 @@
         "name": "kafka"
       },
       {
-        "name": "selenium"
-      },
-      {
-        "name": "python"
-      },
-      {
         "name": "Hexo"
       },
       {
@@ -351,6 +368,12 @@
       },
       {
         "name": "Markdown"
+      },
+      {
+        "name": "selenium"
+      },
+      {
+        "name": "python"
       },
       {
         "name": "django"

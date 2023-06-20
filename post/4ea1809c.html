@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Java正则表达式 | 妙妙屋</title><meta name="author" content="Wuqiuxu"><meta name="copyright" content="Wuqiuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="正则表达式，又称规则表达式（英语：Regular Expression，在代码中常简写为regex、regexp或RE） 正则表达式是对字符串操作的一种逻辑公式 一、正则表达式构造摘要1、字符类12[abc]&#96;：肯定，&#96;a&#96;、&#96;b&#96; 或 &#96;c[^abc]&#96;：否定，除了 &#96;a&#96;、&#96;b&#96; 或 &#96;c  [a-zA-Z]：范围，a 到 z 或 A 到 Z，两头的字母包括在内 2、预定义字符类.：任何字符（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java正则表达式">
+<meta property="og:url" content="http://example.com/post/4ea1809c.html">
+<meta property="og:site_name" content="妙妙屋">
+<meta property="og:description" content="正则表达式，又称规则表达式（英语：Regular Expression，在代码中常简写为regex、regexp或RE） 正则表达式是对字符串操作的一种逻辑公式 一、正则表达式构造摘要1、字符类12[abc]&#96;：肯定，&#96;a&#96;、&#96;b&#96; 或 &#96;c[^abc]&#96;：否定，除了 &#96;a&#96;、&#96;b&#96; 或 &#96;c  [a-zA-Z]：范围，a 到 z 或 A 到 Z，两头的字母包括在内 2、预定义字符类.：任何字符（">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/java.png">
+<meta property="article:published_time" content="2023-06-20T13:48:11.000Z">
+<meta property="article:modified_time" content="2023-06-20T14:01:23.842Z">
+<meta property="article:author" content="Wuqiuxu">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/Psyduck.png"><link rel="shortcut icon" href="/img/Psyduck.png"><link rel="canonical" href="http://example.com/post/4ea1809c.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?5bacdf5f7eaeeca2624a134c063a96c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"V9Z0XHM9DP","apiKey":"fa27b7a048b6171f01dadf98cba8a3fd","indexName":"blog","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":0,"languages":{"author":"作者: Wuqiuxu","link":"链接: ","source":"来源: 妙妙屋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java正则表达式',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-20 22:01:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4125923_iosihe4hf8q.css"><link rel="stylesheet" href="/css/myCss.css"><script src="https://code.jquery.com/jquery-1.7.2.min.js"></script><script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/planet/"><i class="fa-fw fa-solid fa-book"></i><span> 知识星球</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 创作集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/crawler/"><i class="fa-fw fa-solid fa-spider"></i><span> 爬虫</span></a></li><li><a class="site-page child" href="/datadev/"><i class="fa-fw fa-solid fa-database"></i><span> 数据开发</span></a></li><li><a class="site-page child" href="/dataanal/"><i class="fa-fw fa-solid fa-chart-simple"></i><span> 数据分析</span></a></li><li><a class="site-page child" href="/improve/"><i class="fa-fw fa-solid fa-clock"></i><span> 工作提效</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 归档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-book"></i><span> 文档&amp;工具</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/default.png')"><nav id="nav"><span id="blog-info"><a href="/" title="妙妙屋"><img class="site-icon" src="/img/Psyduck.png"/><span class="site-name">妙妙屋</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/planet/"><i class="fa-fw fa-solid fa-book"></i><span> 知识星球</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 创作集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/crawler/"><i class="fa-fw fa-solid fa-spider"></i><span> 爬虫</span></a></li><li><a class="site-page child" href="/datadev/"><i class="fa-fw fa-solid fa-database"></i><span> 数据开发</span></a></li><li><a class="site-page child" href="/dataanal/"><i class="fa-fw fa-solid fa-chart-simple"></i><span> 数据分析</span></a></li><li><a class="site-page child" href="/improve/"><i class="fa-fw fa-solid fa-clock"></i><span> 工作提效</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 归档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-book"></i><span> 文档&amp;工具</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java正则表达式</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-20T13:48:11.000Z" title="发表于 2023-06-20 21:48:11">2023-06-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-20T14:01:23.842Z" title="更新于 2023-06-20 22:01:23">2023-06-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">675</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Java正则表达式"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>正则表达式，又称规则表达式（英语：Regular Expression，在代码中常简写为regex、regexp或RE）</p>
+<p>正则表达式是对字符串操作的一种逻辑公式</p>
+<h1 id="一、正则表达式构造摘要"><a href="#一、正则表达式构造摘要" class="headerlink" title="一、正则表达式构造摘要"></a>一、正则表达式构造摘要</h1><h2 id="1、字符类"><a href="#1、字符类" class="headerlink" title="1、字符类"></a>1、字符类</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[abc]`：肯定，`a`、`b` 或 `c</span><br><span class="line">[^abc]`：否定，除了 `a`、`b` 或 `c</span><br></pre></td></tr></table></figure>
+
+<p><code>[a-zA-Z]</code>：范围，<code>a</code> 到 <code>z</code> 或 <code>A</code> 到 <code>Z</code>，两头的字母包括在内</p>
+<h2 id="2、预定义字符类"><a href="#2、预定义字符类" class="headerlink" title="2、预定义字符类"></a>2、预定义字符类</h2><p><code>.</code>：任何字符（与行结束符可能匹配也可能不匹配）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\d`：数字，`[0-9]</span><br><span class="line">\D`：非数字， `[^0-9]</span><br><span class="line">\s`：空白字符，`[ \t\n\x0B\f\r]</span><br><span class="line">\S`：非空白字符，`[^\s]</span><br><span class="line">\w`：单词字符，`[a-zA-Z_0-9]</span><br><span class="line">\W`：非单词字符，`[^\w]</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、POSIX-字符类（仅-US-ASCII）"><a href="#3、POSIX-字符类（仅-US-ASCII）" class="headerlink" title="3、POSIX 字符类（仅 US-ASCII）"></a>3、POSIX 字符类（仅 US-ASCII）</h2><p><code>\p&#123;Lower&#125;</code>：小写字母字符，[a-z]</p>
+<p><code>\p&#123;Upper&#125;</code>：大写字母字符，[A-Z]</p>
+<p><code>\p&#123;ASCII&#125;</code>：所有ASCII，[\x00-\x7F]</p>
+<p><code>\p&#123;Alpha&#125;</code>：字母字符，[\p{Lower}\p{Upper}]</p>
+<p><code>\p&#123;Digit&#125;</code>：十进制数字，[0-9]</p>
+<p><code>\p&#123;Alnum&#125;</code>：字母数字字符，[\p{Alpha}\p{Digit}]</p>
+<p><code>\p&#123;Punct&#125;</code>：标点符号，[!”#$%&amp;’()*+,-.&#x2F;:;&lt;&#x3D;&gt;?@[]^_&#96;{|}~]</p>
+<p><code>\p&#123;Blank&#125;</code>：空格或制表符，[ \t]</p>
+<h2 id="4、边界匹配器"><a href="#4、边界匹配器" class="headerlink" title="4、边界匹配器"></a>4、边界匹配器</h2><p><code>^</code>：行的开头</p>
+<p><code>$</code>：行的结尾</p>
+<h2 id="5、Greedy数量词"><a href="#5、Greedy数量词" class="headerlink" title="5、Greedy数量词"></a>5、Greedy数量词</h2><p><em>X</em><code>?</code>：<em>X</em>，一次或一次也没有</p>
+<p><em>X</em><code>*</code>：<em>X</em>，零次或多次</p>
+<p><em>X</em><code>+</code>：<em>X</em>，一次或多次</p>
+<p><em>X</em><code>&#123;</code><em>n</em><code>&#125;</code>：<em>X</em>，恰好 <em>n</em> 次</p>
+<p><em>X</em><code>&#123;</code><em>n</em><code>,&#125;</code>：<em>X</em>，至少 <em>n</em> 次</p>
+<p><em>X</em><code>&#123;</code><em>n</em><code>,</code><em>m</em><code>&#125;</code>：<em>X</em>，至少 <em>n</em> 次，但是不超过 <em>m</em> 次</p>
+<h2 id="6、Logical运算符"><a href="#6、Logical运算符" class="headerlink" title="6、Logical运算符"></a>6、Logical运算符</h2><p><em>XY</em>：<em>X</em> 后跟 <em>Y</em></p>
+<p><em>X</em><code>|</code><em>Y</em>：<em>X</em> 或 <em>Y</em></p>
+<p><code>(</code><em>X</em><code>)</code>：X，作为捕获组</p>
+<h2 id="7、特殊构造（非捕获）"><a href="#7、特殊构造（非捕获）" class="headerlink" title="7、特殊构造（非捕获）"></a>7、特殊构造（非捕获）</h2><p>(?:X) X，作为非捕获组</p>
+<p>(?&#x3D;X) X，通过零宽度的正 lookahead</p>
+<p>(?!X) X，通过零宽度的负 lookahead</p>
+<p>(?&lt;&#x3D;X) X，通过零宽度的正 lookbehind</p>
+<p>(?&lt;!X) X，通过零宽度的负 lookbehind</p>
+<p>(?&gt;X) X，作为独立的非捕获组</p>
+<h1 id="二、常见的正则表达式示例"><a href="#二、常见的正则表达式示例" class="headerlink" title="二、常见的正则表达式示例"></a>二、常见的正则表达式示例</h1><ul>
+<li>验证用户名和密码，要求第一个字必须为字母，一共6~16位字母数字下划线组成：(^\w{5,15}$) </li>
+<li>验证电话号码xxx&#x2F;xxxx-xxxxxxx&#x2F;xxxxxxxx：(^(\d{3,4}-)\d{7,8}$) </li>
+<li>验证手机号码：( ^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$ ) </li>
+<li>验证身份证号： ( \d{15}$)|(^\d{18}$)|(\d{17}(\d|X|x)$)</li>
+<li>验证Email地址：(^\w+([-+.]\w+)<em>@\w+([-.]\w+)</em>.\w+([-.]\w+)*$) </li>
+<li>只能输入由数字和26个英文字母组成的字符串：(^[A-Za-z0-9]+$) </li>
+<li>整数或者小数：(^[0-9]+(.[0-9]+){0,1}$) </li>
+<li>中文字符的正则表达式：([\u4e00-\u9fa5]) </li>
+<li>金额校验(非零开头的最多带两位小数的数字)：(^([1-9][0-9]*)+(.[0-9]{1,2})?$) </li>
+<li>IPV4地址：(((\d{1,2})|(1\d{1,2})|(2[0-4]\d)|(25[0-5])).){3}((\d{1,2})|(1\d{1,2})|(2[0-4]\d)|(25[0-5]))</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Wuqiuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/post/4ea1809c.html">http://example.com/post/4ea1809c.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">妙妙屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a></div><div class="post_share"><div class="social-share" data-image="/img/java.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/1630b670.html" title="Java常用API"><img class="cover" src="/img/java.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java常用API</div></div></a></div><div class="next-post pull-right"><a href="/post/fa358471.html" title="Java反射"><img class="cover" src="/img/java.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java反射</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/59ae8782.html" title="Java IO流"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java IO流</div></div></a></div><div><a href="/post/fa358471.html" title="Java反射"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java反射</div></div></a></div><div><a href="/post/ea538f2a.html" title="Java基础语法"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java基础语法</div></div></a></div><div><a href="/post/a2c3ad19.html" title="Java多线程"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java多线程</div></div></a></div><div><a href="/post/1630b670.html" title="Java常用API"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java常用API</div></div></a></div><div><a href="/post/e3345db4.html" title="Java数组"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java数组</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wuqiuxu</div><div class="author-info__description">鸟随鸾凤飞腾远</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wuqiuxu" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fa-brands fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://i.postimg.cc/660kspWH/image.jpg" rel="external nofollow noreferrer" target="_blank" title="Wechat"><i class="fa-brands fa-weixin" style="color: #05DC6C;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9E%84%E9%80%A0%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">一、正则表达式构造摘要</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%AD%97%E7%AC%A6%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">1、字符类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E9%A2%84%E5%AE%9A%E4%B9%89%E5%AD%97%E7%AC%A6%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">2、预定义字符类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81POSIX-%E5%AD%97%E7%AC%A6%E7%B1%BB%EF%BC%88%E4%BB%85-US-ASCII%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">3、POSIX 字符类（仅 US-ASCII）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E8%BE%B9%E7%95%8C%E5%8C%B9%E9%85%8D%E5%99%A8"><span class="toc-number">1.4.</span> <span class="toc-text">4、边界匹配器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81Greedy%E6%95%B0%E9%87%8F%E8%AF%8D"><span class="toc-number">1.5.</span> <span class="toc-text">5、Greedy数量词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81Logical%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.6.</span> <span class="toc-text">6、Logical运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E3%80%81%E7%89%B9%E6%AE%8A%E6%9E%84%E9%80%A0%EF%BC%88%E9%9D%9E%E6%8D%95%E8%8E%B7%EF%BC%89"><span class="toc-number">1.7.</span> <span class="toc-text">7、特殊构造（非捕获）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B8%B8%E8%A7%81%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">二、常见的正则表达式示例</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/1630b670.html" title="Java常用API"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java常用API"/></a><div class="content"><a class="title" href="/post/1630b670.html" title="Java常用API">Java常用API</a><time datetime="2023-06-20T13:48:19.000Z" title="发表于 2023-06-20 21:48:19">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/4ea1809c.html" title="Java正则表达式"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java正则表达式"/></a><div class="content"><a class="title" href="/post/4ea1809c.html" title="Java正则表达式">Java正则表达式</a><time datetime="2023-06-20T13:48:11.000Z" title="发表于 2023-06-20 21:48:11">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/fa358471.html" title="Java反射"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java反射"/></a><div class="content"><a class="title" href="/post/fa358471.html" title="Java反射">Java反射</a><time datetime="2023-06-20T13:48:00.000Z" title="发表于 2023-06-20 21:48:00">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/3a3aa666.html" title="Java网络编程"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java网络编程"/></a><div class="content"><a class="title" href="/post/3a3aa666.html" title="Java网络编程">Java网络编程</a><time datetime="2023-06-20T13:47:56.000Z" title="发表于 2023-06-20 21:47:56">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/59ae8782.html" title="Java IO流"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java IO流"/></a><div class="content"><a class="title" href="/post/59ae8782.html" title="Java IO流">Java IO流</a><time datetime="2023-06-20T13:47:50.000Z" title="发表于 2023-06-20 21:47:50">2023-06-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/default.png')"><div id="footer-wrap"><div class="copyright">&copy;2023 By Wuqiuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addModeChange('mermaid', runMermaid)
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>
