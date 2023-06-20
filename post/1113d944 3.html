@@ -1,0 +1,443 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Java概述 | 妙妙屋</title><meta name="author" content="Wuqiuxu"><meta name="copyright" content="Wuqiuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="一、Java语言概述1、Java语言发展历史 Java诞生于SUN（Stanford University Network），Java之父是詹姆斯.高斯林(James Gosling)     发行版本 发行时间 备注    Java 1995.05.23 Sun公司在Sun world会议上正式发布Java和HotJava浏览器   Java 1.0 1996.01.23 Sun公司发布了Jav">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java概述">
+<meta property="og:url" content="https://wuqiuxu.github.io/post/1113d944.html">
+<meta property="og:site_name" content="妙妙屋">
+<meta property="og:description" content="一、Java语言概述1、Java语言发展历史 Java诞生于SUN（Stanford University Network），Java之父是詹姆斯.高斯林(James Gosling)     发行版本 发行时间 备注    Java 1995.05.23 Sun公司在Sun world会议上正式发布Java和HotJava浏览器   Java 1.0 1996.01.23 Sun公司发布了Jav">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wuqiuxu.github.io/img/java.png">
+<meta property="article:published_time" content="2023-06-20T13:46:10.000Z">
+<meta property="article:modified_time" content="2023-06-20T13:54:18.452Z">
+<meta property="article:author" content="Wuqiuxu">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wuqiuxu.github.io/img/Psyduck.png"><link rel="shortcut icon" href="/img/Psyduck.png"><link rel="canonical" href="https://wuqiuxu.github.io/post/1113d944.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?5bacdf5f7eaeeca2624a134c063a96c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"V9Z0XHM9DP","apiKey":"fa27b7a048b6171f01dadf98cba8a3fd","indexName":"blog","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":0,"languages":{"author":"作者: Wuqiuxu","link":"链接: ","source":"来源: 妙妙屋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java概述',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-20 21:54:18'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4125923_iosihe4hf8q.css"><link rel="stylesheet" href="/css/myCss.css"><script src="https://code.jquery.com/jquery-1.7.2.min.js"></script><script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/planet/"><i class="fa-fw fa-solid fa-book"></i><span> 知识星球</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 创作集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/crawler/"><i class="fa-fw fa-solid fa-spider"></i><span> 爬虫</span></a></li><li><a class="site-page child" href="/datadev/"><i class="fa-fw fa-solid fa-database"></i><span> 数据开发</span></a></li><li><a class="site-page child" href="/dataanal/"><i class="fa-fw fa-solid fa-chart-simple"></i><span> 数据分析</span></a></li><li><a class="site-page child" href="/improve/"><i class="fa-fw fa-solid fa-clock"></i><span> 工作提效</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 归档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-book"></i><span> 文档&amp;工具</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/default.png')"><nav id="nav"><span id="blog-info"><a href="/" title="妙妙屋"><img class="site-icon" src="/img/Psyduck.png"/><span class="site-name">妙妙屋</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/planet/"><i class="fa-fw fa-solid fa-book"></i><span> 知识星球</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 创作集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/crawler/"><i class="fa-fw fa-solid fa-spider"></i><span> 爬虫</span></a></li><li><a class="site-page child" href="/datadev/"><i class="fa-fw fa-solid fa-database"></i><span> 数据开发</span></a></li><li><a class="site-page child" href="/dataanal/"><i class="fa-fw fa-solid fa-chart-simple"></i><span> 数据分析</span></a></li><li><a class="site-page child" href="/improve/"><i class="fa-fw fa-solid fa-clock"></i><span> 工作提效</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 归档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-book"></i><span> 文档&amp;工具</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java概述</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-20T13:46:10.000Z" title="发表于 2023-06-20 21:46:10">2023-06-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-20T13:54:18.452Z" title="更新于 2023-06-20 21:54:18">2023-06-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Java概述"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="一、Java语言概述"><a href="#一、Java语言概述" class="headerlink" title="一、Java语言概述"></a>一、Java语言概述</h2><h3 id="1、Java语言发展历史"><a href="#1、Java语言发展历史" class="headerlink" title="1、Java语言发展历史"></a>1、Java语言发展历史</h3><ul>
+<li>Java诞生于SUN（Stanford University Network），Java之父是詹姆斯.高斯林(James Gosling)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>发行版本</th>
+<th>发行时间</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Java</td>
+<td>1995.05.23</td>
+<td>Sun公司在Sun world会议上正式发布Java和HotJava浏览器</td>
+</tr>
+<tr>
+<td>Java 1.0</td>
+<td>1996.01.23</td>
+<td>Sun公司发布了Java的第一个开发工具包</td>
+</tr>
+<tr>
+<td>Java 1.1</td>
+<td>1997.02.19</td>
+<td></td>
+</tr>
+<tr>
+<td>Java 1.2</td>
+<td>1998.12.08</td>
+<td>拆分成：J2SE（标准版）、J2EE（企业版）、J2ME（小型版）</td>
+</tr>
+<tr>
+<td>Java 1.3</td>
+<td>2000.05.08</td>
+<td></td>
+</tr>
+<tr>
+<td>Java1.4</td>
+<td>2004.02.06</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Java 5.0</strong></td>
+<td>2004.09.30</td>
+<td>①版本号从1.4直接更新至5.0；②平台更名为JavaSE、JavaEE、JavaME</td>
+</tr>
+<tr>
+<td>Java 6.0</td>
+<td>2006.12.11</td>
+<td>2009.04.20 Oracle宣布收购SUN公司</td>
+</tr>
+<tr>
+<td>Java 7.0</td>
+<td>2011.07.02</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Java 8.0</strong></td>
+<td>2014.03.18</td>
+<td></td>
+</tr>
+<tr>
+<td>Java 9.0</td>
+<td>2017.09.22</td>
+<td>①每半年更新一次；②Java 9.0开始不再支持windows 32位系统</td>
+</tr>
+<tr>
+<td>Java 10.0</td>
+<td>2018.03.21</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Java 11.0</strong></td>
+<td>2018.09.25</td>
+<td>JDK安装包取消独立JRE安装包，长期支持版本</td>
+</tr>
+<tr>
+<td>Java 12.0</td>
+<td>2019.03.19</td>
+<td></td>
+</tr>
+<tr>
+<td>Java 13.0</td>
+<td>2019.9.18</td>
+<td></td>
+</tr>
+<tr>
+<td>Java 14.0</td>
+<td>2020.3.17</td>
+<td></td>
+</tr>
+<tr>
+<td>Java 15.0</td>
+<td>2020.9</td>
+<td></td>
+</tr>
+<tr>
+<td>Java16.0</td>
+<td>2021.3</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Java17.0</strong></td>
+<td>2021.9</td>
+<td>最新的长期支持版本</td>
+</tr>
+</tbody></table>
+<h3 id="2、Java语言的特点"><a href="#2、Java语言的特点" class="headerlink" title="2、Java语言的特点"></a>2、Java语言的特点</h3><p>（1）<strong>优点</strong></p>
+<ul>
+<li><strong>面向对象：</strong>Java语言支持封装、继承、多态，面向对象编程，让程序更好达到高内聚，低耦合的标准</li>
+<li><strong>支持分布式：</strong>Java语言支持Internet应用的开发，在基本的Java应用编程接口中有一个网络应用编程接口（java net），它提供了用于网络应用编程的类库，包括URL、URLConnection、Socket、ServerSocket等。Java的RMI（远程方法激活）机制也是开发分布式应用的重要手段</li>
+<li><strong>健壮型：</strong>Java的强类型机制、异常处理、垃圾的自动收集等是Java程序健壮性的重要保证。对指针的丢弃是Java的明智选择</li>
+<li><strong>安全性高：</strong>Java通常被用在网络环境中，为此，Java提供了一个安全机制以防恶意代码的攻击。如：安全防范机制（类ClassLoader），如分配不同的名字空间以防替代本地的同名类、字节代码检查</li>
+<li><strong>跨平台性：</strong>Java程序（后缀为java的文件）在Java平台上被编译为体系结构中立的字节码格式（后缀为class的文件），然后可以在实现这个Java平台的任何系统中运行</li>
+</ul>
+<p>（2）<strong>缺点</strong></p>
+<ul>
+<li>语法过于复杂，严谨，对程序员的约束比较多，与python和php等相比入门相对较难</li>
+<li>一般适用于大型网站开发，整个架构会比较重，对于初创公司开发和维护人员的成本比较高，选择用Java语言开发网站或应用系统的需要一定的经济实力</li>
+</ul>
+<h3 id="3、Java技术体系平台"><a href="#3、Java技术体系平台" class="headerlink" title="3、Java技术体系平台"></a>3、Java技术体系平台</h3><ul>
+<li><p>JavaSE（Java Platform, Standard Edition标准版）：允许您在桌面和服务器上开发和部署Java应用程序</p>
+</li>
+<li><p>JavaEE（Java Platform, Enterprise Edition企业版）：是为开发企业环境下的应用程序提供的一套解决方案，主要针对于Web应用程序开发</p>
+</li>
+<li><p>JavaME（Java Platform, Micro Edition小型版）：为互联网上的嵌入式和移动设备上运行的应用提供了一个健壮、灵活的环境：微控制器、传感器、网关、移动电话、个人数字助理（PDA）、电视机顶盒、打印机等等。基于JavaME的应用程序在许多设备上都是可移植的，但是利用了每个设备的本机功能</p>
+</li>
+<li><ul>
+<li>Java Embedded: 用于解锁物联网的智能设备的价值：通过远程市场更新和刷新功能延长产品生命周期和价值；利用Java的可伸缩性、健壮性、可移植性和全套功能，提高生产效率，降低成本，缩短上市时间；在边缘启用快速数据功能</li>
+<li>Java Card：使安全元件（如智能卡和其他防篡改安全芯片）能够承载采用Java技术的应用程序。Java card提供了一个安全的、可互操作的执行平台，它可以在一个资源受限的设备上存储和更新多个应用程序，同时保持最高的认证级别和与标准的兼容性</li>
+<li>Java TV：是一种基于JavaME的技术，它为开发在tv和机顶盒设备上运行的java应用程序提供了一个性能良好、安全且易于实现的解决方案</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/22414596/1677746483363-4b0d7a96-8d56-4246-82e2-679018c21a16.png" alt="img"></p>
+<h2 id="二、Java语言跨平台原理"><a href="#二、Java语言跨平台原理" class="headerlink" title="二、Java语言跨平台原理"></a>二、Java语言跨平台原理</h2><h3 id="1、Java语言跨平台原理"><a href="#1、Java语言跨平台原理" class="headerlink" title="1、Java语言跨平台原理"></a>1、Java语言跨平台原理</h3><ul>
+<li><strong>C跨平台原理</strong></li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/22414596/1677746506878-8837e91d-b5cd-497b-89b5-08137c648dfe.png" alt="img"></p>
+<ul>
+<li><p><strong>Java跨平台原理</strong></p>
+</li>
+<li><ul>
+<li>Java设计了一套简洁的虚拟指令集，也就是字节码</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/22414596/1677746524493-9ccf023c-7258-4861-94fb-9d5b2635c667.png" alt="img"></p>
+<ul>
+<li><ul>
+<li>Java虚拟机（JVM，Java Virtual Machine）是由软件技术模拟出计算机运行的一个虚拟的计算机，它负责解释执行字节码指令集。而不同的平台，需要安装不同的Java虚拟机程序</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/22414596/1677746541111-c073e127-3d15-4947-872b-bbd98af5e688.png" alt="img"></p>
+<ul>
+<li><ul>
+<li>Java虚拟机的设计不仅仅解决了Java程序跨平台的问题，同时解决了很多语言的跨平台问题</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>MacOS，Windows，Linux，android等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/22414596/1677746552867-a13a0002-8094-4a6f-83a1-c225b4e8e85a.png" alt="img"></p>
+<h3 id="2、JVM、JRE、JDK的关系"><a href="#2、JVM、JRE、JDK的关系" class="headerlink" title="2、JVM、JRE、JDK的关系"></a>2、JVM、JRE、JDK的关系</h3><ul>
+<li><strong>JVM</strong>（Java Virtual Machine ）：Java虚拟机，是运行所有Java程序的假想计算机，是Java程序的运行环境之一，也是Java 最具吸引力的特性之一。我们编写的Java代码，都运行在<code>**JVM**</code>之上</li>
+<li><strong>JRE</strong>  (Java Runtime Environment) ：是Java程序的运行环境，包含<code>**JVM**</code>和运行时所需要的核心类库</li>
+<li><strong>JDK</strong>  (Java Development’s Kit)：是Java程序开发工具包，包含<code>**JRE**</code>和开发人员使用的工具</li>
+</ul>
+<p>想要运行一个已有的Java程序，那么只需安装<code>JRE</code> 即可</p>
+<p>想要开发一个全新的Java程序，那么必须安装<code>JDK</code> ，其内部包含<code>JRE</code></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/22414596/1677746591132-666356dd-3dd8-40e5-842b-459a72680b88.png" alt="img"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/22414596/1677746601166-4f3f6bb0-63c7-4955-8abb-2f952dbfcfa1.png" alt="img"></p>
+<h2 id="三、Java程序说明"><a href="#三、Java程序说明" class="headerlink" title="三、Java程序说明"></a>三、Java程序说明</h2><h3 id="1、-HelloWorld案例"><a href="#1、-HelloWorld案例" class="headerlink" title="1、 HelloWorld案例"></a>1、 HelloWorld案例</h3><h4 id="（1）程序开发步骤说明"><a href="#（1）程序开发步骤说明" class="headerlink" title="（1）程序开发步骤说明"></a>（1）程序开发步骤说明</h4><ul>
+<li>Java程序开发三步骤：<strong>编写</strong>、<strong>编译</strong>、<strong>运行</strong></li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/22414596/1677746670488-2f62037e-e10b-4a38-b6ff-36cb8f71ac0b.png" alt="img"></p>
+<h4 id="（2）编写Java源程序，保存-java源文件"><a href="#（2）编写Java源程序，保存-java源文件" class="headerlink" title="（2）编写Java源程序，保存.java源文件"></a>（2）编写Java源程序，保存.java源文件</h4><ol>
+<li>新建文本文件，完整的文件名修改为<code>HelloWorld.java</code>，其中文件名为<code>HelloWorld</code>，后缀名必须为<code>.java</code> </li>
+<li>用sublime&#x2F;notepad++等文本编辑器打开</li>
+<li>在文件中输入如下代码，并保存</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloWorld</span> &#123;</span><br><span class="line">  	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    	System.out.println(<span class="string">&quot;HelloWorld&quot;</span>);</span><br><span class="line">  	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="（3）编译Java源文件生成-class字节码文件"><a href="#（3）编译Java源文件生成-class字节码文件" class="headerlink" title="（3）编译Java源文件生成.class字节码文件"></a>（3）编译Java源文件生成.class字节码文件</h4><ol>
+<li>Java源文件的编译工具是<code>javac.exe</code></li>
+<li>在命令行中，进入Java源文件所在目录，使用<code>javac</code> 命令进行编译：<code>javac HelloWorld.java</code></li>
+</ol>
+<p>编译格式：javac Java源文件名.后缀名</p>
+<ol>
+<li>此时目录会产生一个新的文件<code>HelloWorld.class</code>，该文件就是编译后的文件，是Java的可运行文件，称为字节码文件</li>
+</ol>
+<h4 id="（4）运行Java程序"><a href="#（4）运行Java程序" class="headerlink" title="（4）运行Java程序"></a>（4）运行Java程序</h4><ol>
+<li>Java字节码文件的运行工具是<code>java.exe</code></li>
+<li>使用<code>java</code> 命令运行：<code>java HelloWorld</code></li>
+</ol>
+<p>运行格式：<code>java 主类名字</code>，主类是指包含main方法的类</p>
+<h3 id="2、Java程序的结构与格式"><a href="#2、Java程序的结构与格式" class="headerlink" title="2、Java程序的结构与格式"></a>2、Java程序的结构与格式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">类&#123;</span><br><span class="line">    方法&#123;</span><br><span class="line">        语句;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、Java程序的入口"><a href="#3、Java程序的入口" class="headerlink" title="3、Java程序的入口"></a>3、Java程序的入口</h3><ul>
+<li>Java程序的入口是main方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、Java程序编写习惯"><a href="#4、Java程序编写习惯" class="headerlink" title="4、Java程序编写习惯"></a>4、Java程序编写习惯</h3><p>（1）源文件名和类名</p>
+<ul>
+<li>public类：源文件名必须与类名一致</li>
+<li>非public类：源文件名可以和类名不一致，但是不便于代码维护，建议与类名一致</li>
+</ul>
+<p>（2）源文件和类个数</p>
+<ul>
+<li>public类：只能有一个</li>
+<li>非public类：可以有多个，编译后会生成多个.class字节码文件</li>
+</ul>
+<p>为了方便代码维护，一个源文件尽量只写一个类</p>
+<p>（3）类与main方法</p>
+<ul>
+<li>main方法（主方法）习惯写在public类中</li>
+</ul>
+<h3 id="5、Java字符编码问题"><a href="#5、Java字符编码问题" class="headerlink" title="5、Java字符编码问题"></a>5、Java字符编码问题</h3><p>问题：命令行窗口的字符编码与.java源文件的字符编码不一致</p>
+<p>解决方案一：在Notepad++等编辑器中，修改源文件的字符编码</p>
+<p>解决方案二：在使用javac命令时，指定源文件的字符编码</p>
+<p>例：<code>javac -encoding utf-8 Review01.java</code></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://wuqiuxu.github.io">Wuqiuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://wuqiuxu.github.io/post/1113d944.html">https://wuqiuxu.github.io/post/1113d944.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://wuqiuxu.github.io" target="_blank">妙妙屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a></div><div class="post_share"><div class="social-share" data-image="/img/java.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/ea538f2a.html" title="Java基础语法"><img class="cover" src="/img/java.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java基础语法</div></div></a></div><div class="next-post pull-right"><a href="/post/d87f7e0c.html" title="selenium模块常用属性及方法"><img class="cover" src="https://file.crazywong.com/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">selenium模块常用属性及方法</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/59ae8782.html" title="Java IO流"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java IO流</div></div></a></div><div><a href="/post/fa358471.html" title="Java反射"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java反射</div></div></a></div><div><a href="/post/ea538f2a.html" title="Java基础语法"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java基础语法</div></div></a></div><div><a href="/post/a2c3ad19.html" title="Java多线程"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java多线程</div></div></a></div><div><a href="/post/1630b670.html" title="Java常用API"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java常用API</div></div></a></div><div><a href="/post/f495a96f.html" title="Java异常"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java异常</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wuqiuxu</div><div class="author-info__description">鸟随鸾凤飞腾远</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wuqiuxu" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fa-brands fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://i.postimg.cc/660kspWH/image.jpg" rel="external nofollow noreferrer" target="_blank" title="Wechat"><i class="fa-brands fa-weixin" style="color: #05DC6C;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">一、Java语言概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81Java%E8%AF%AD%E8%A8%80%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="toc-number">1.1.</span> <span class="toc-text">1、Java语言发展历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81Java%E8%AF%AD%E8%A8%80%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">2、Java语言的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81Java%E6%8A%80%E6%9C%AF%E4%BD%93%E7%B3%BB%E5%B9%B3%E5%8F%B0"><span class="toc-number">1.3.</span> <span class="toc-text">3、Java技术体系平台</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Java%E8%AF%AD%E8%A8%80%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">二、Java语言跨平台原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81Java%E8%AF%AD%E8%A8%80%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">1、Java语言跨平台原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81JVM%E3%80%81JRE%E3%80%81JDK%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">2.2.</span> <span class="toc-text">2、JVM、JRE、JDK的关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Java%E7%A8%8B%E5%BA%8F%E8%AF%B4%E6%98%8E"><span class="toc-number">3.</span> <span class="toc-text">三、Java程序说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81-HelloWorld%E6%A1%88%E4%BE%8B"><span class="toc-number">3.1.</span> <span class="toc-text">1、 HelloWorld案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4%E8%AF%B4%E6%98%8E"><span class="toc-number">3.1.1.</span> <span class="toc-text">（1）程序开发步骤说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E7%BC%96%E5%86%99Java%E6%BA%90%E7%A8%8B%E5%BA%8F%EF%BC%8C%E4%BF%9D%E5%AD%98-java%E6%BA%90%E6%96%87%E4%BB%B6"><span class="toc-number">3.1.2.</span> <span class="toc-text">（2）编写Java源程序，保存.java源文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E7%BC%96%E8%AF%91Java%E6%BA%90%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90-class%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6"><span class="toc-number">3.1.3.</span> <span class="toc-text">（3）编译Java源文件生成.class字节码文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E8%BF%90%E8%A1%8CJava%E7%A8%8B%E5%BA%8F"><span class="toc-number">3.1.4.</span> <span class="toc-text">（4）运行Java程序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81Java%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BB%93%E6%9E%84%E4%B8%8E%E6%A0%BC%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">2、Java程序的结构与格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81Java%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%85%A5%E5%8F%A3"><span class="toc-number">3.3.</span> <span class="toc-text">3、Java程序的入口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81Java%E7%A8%8B%E5%BA%8F%E7%BC%96%E5%86%99%E4%B9%A0%E6%83%AF"><span class="toc-number">3.4.</span> <span class="toc-text">4、Java程序编写习惯</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81Java%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98"><span class="toc-number">3.5.</span> <span class="toc-text">5、Java字符编码问题</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/2c831fb.html" title="Linux概述及常用命令"><img src="/img/linux.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux概述及常用命令"/></a><div class="content"><a class="title" href="/post/2c831fb.html" title="Linux概述及常用命令">Linux概述及常用命令</a><time datetime="2023-06-20T14:39:54.000Z" title="发表于 2023-06-20 22:39:54">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/1630b670.html" title="Java常用API"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java常用API"/></a><div class="content"><a class="title" href="/post/1630b670.html" title="Java常用API">Java常用API</a><time datetime="2023-06-20T13:48:19.000Z" title="发表于 2023-06-20 21:48:19">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/4ea1809c.html" title="Java正则表达式"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java正则表达式"/></a><div class="content"><a class="title" href="/post/4ea1809c.html" title="Java正则表达式">Java正则表达式</a><time datetime="2023-06-20T13:48:11.000Z" title="发表于 2023-06-20 21:48:11">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/fa358471.html" title="Java反射"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java反射"/></a><div class="content"><a class="title" href="/post/fa358471.html" title="Java反射">Java反射</a><time datetime="2023-06-20T13:48:00.000Z" title="发表于 2023-06-20 21:48:00">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/3a3aa666.html" title="Java网络编程"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java网络编程"/></a><div class="content"><a class="title" href="/post/3a3aa666.html" title="Java网络编程">Java网络编程</a><time datetime="2023-06-20T13:47:56.000Z" title="发表于 2023-06-20 21:47:56">2023-06-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/default.png')"><div id="footer-wrap"><div class="copyright">&copy;2023 By Wuqiuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addModeChange('mermaid', runMermaid)
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>

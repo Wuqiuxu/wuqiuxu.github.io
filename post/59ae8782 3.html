@@ -1,0 +1,566 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Java IO流 | 妙妙屋</title><meta name="author" content="Wuqiuxu"><meta name="copyright" content="Wuqiuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="一、IO概述1、什么是IO 数据的传输，可以看做是一种数据的流动，按照流动的方向，以内存为基准，分为输入input 和输出output ，即流向内存是输入流，流出内存是输出流 Java中I&#x2F;O操作主要是指使用java.io包下的内容，进行输入、输出操作。输入也叫做读取数据，输出也叫做写出数据  2、IO的分类 根据数据的流向分类   输入流 ：把数据从其他设备上读取到内存中的流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java IO流">
+<meta property="og:url" content="https://wuqiuxu.github.io/post/59ae8782.html">
+<meta property="og:site_name" content="妙妙屋">
+<meta property="og:description" content="一、IO概述1、什么是IO 数据的传输，可以看做是一种数据的流动，按照流动的方向，以内存为基准，分为输入input 和输出output ，即流向内存是输入流，流出内存是输出流 Java中I&#x2F;O操作主要是指使用java.io包下的内容，进行输入、输出操作。输入也叫做读取数据，输出也叫做写出数据  2、IO的分类 根据数据的流向分类   输入流 ：把数据从其他设备上读取到内存中的流">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wuqiuxu.github.io/img/java.png">
+<meta property="article:published_time" content="2023-06-20T13:47:50.000Z">
+<meta property="article:modified_time" content="2023-06-20T13:59:42.702Z">
+<meta property="article:author" content="Wuqiuxu">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wuqiuxu.github.io/img/Psyduck.png"><link rel="shortcut icon" href="/img/Psyduck.png"><link rel="canonical" href="https://wuqiuxu.github.io/post/59ae8782.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?5bacdf5f7eaeeca2624a134c063a96c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"V9Z0XHM9DP","apiKey":"fa27b7a048b6171f01dadf98cba8a3fd","indexName":"blog","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":0,"languages":{"author":"作者: Wuqiuxu","link":"链接: ","source":"来源: 妙妙屋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java IO流',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-20 21:59:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4125923_iosihe4hf8q.css"><link rel="stylesheet" href="/css/myCss.css"><script src="https://code.jquery.com/jquery-1.7.2.min.js"></script><script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/planet/"><i class="fa-fw fa-solid fa-book"></i><span> 知识星球</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 创作集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/crawler/"><i class="fa-fw fa-solid fa-spider"></i><span> 爬虫</span></a></li><li><a class="site-page child" href="/datadev/"><i class="fa-fw fa-solid fa-database"></i><span> 数据开发</span></a></li><li><a class="site-page child" href="/dataanal/"><i class="fa-fw fa-solid fa-chart-simple"></i><span> 数据分析</span></a></li><li><a class="site-page child" href="/improve/"><i class="fa-fw fa-solid fa-clock"></i><span> 工作提效</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 归档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-book"></i><span> 文档&amp;工具</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/default.png')"><nav id="nav"><span id="blog-info"><a href="/" title="妙妙屋"><img class="site-icon" src="/img/Psyduck.png"/><span class="site-name">妙妙屋</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/planet/"><i class="fa-fw fa-solid fa-book"></i><span> 知识星球</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 创作集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/crawler/"><i class="fa-fw fa-solid fa-spider"></i><span> 爬虫</span></a></li><li><a class="site-page child" href="/datadev/"><i class="fa-fw fa-solid fa-database"></i><span> 数据开发</span></a></li><li><a class="site-page child" href="/dataanal/"><i class="fa-fw fa-solid fa-chart-simple"></i><span> 数据分析</span></a></li><li><a class="site-page child" href="/improve/"><i class="fa-fw fa-solid fa-clock"></i><span> 工作提效</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 归档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-book"></i><span> 文档&amp;工具</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java IO流</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-20T13:47:50.000Z" title="发表于 2023-06-20 21:47:50">2023-06-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-20T13:59:42.702Z" title="更新于 2023-06-20 21:59:42">2023-06-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Java IO流"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一、IO概述"><a href="#一、IO概述" class="headerlink" title="一、IO概述"></a>一、IO概述</h1><h2 id="1、什么是IO"><a href="#1、什么是IO" class="headerlink" title="1、什么是IO"></a>1、什么是IO</h2><ul>
+<li>数据的传输，可以看做是一种数据的流动，按照流动的方向，以内存为基准，分为<code>输入input</code> 和<code>输出output</code> ，即流向内存是输入流，流出内存是输出流</li>
+<li>Java中I&#x2F;O操作主要是指使用<code>java.io</code>包下的内容，进行输入、输出操作。输入也叫做读取数据，输出也叫做写出数据</li>
+</ul>
+<h2 id="2、IO的分类"><a href="#2、IO的分类" class="headerlink" title="2、IO的分类"></a>2、IO的分类</h2><ul>
+<li><p>根据数据的流向分类</p>
+</li>
+<li><ul>
+<li>输入流 ：把数据从其他设备上读取到内存中的流</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>以InputStream,Reader结尾</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li>输出流 ：把数据从内存 中写出到其他设备上的流</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>以OutputStream、Writer结尾</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>根据数据的类型分类</p>
+</li>
+<li><ul>
+<li>字节流 ：以字节为单位，读写数据的流</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>以InputStream和OutputStream结尾</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li>字符流 ：以字符为单位，读写数据的流</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>以Reader和Writer结尾</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>根据IO流的角色分类</p>
+</li>
+<li><ul>
+<li>节点流：可以从或向一个特定的地方（节点）读写数据</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>文件：FileInputStream、FileOutputStrean、FileReader、FileWriter</li>
+<li>字符串：StringReader、StringWriter</li>
+<li>数组：ByteArrayInputStream、ByteArrayOutputStream、CharArrayReader、CharArrayWriter</li>
+<li>管道：PipedInputStream、PipedOutputStream、PipedReader、PipedWriter</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li>处理流：是对一个已存在的流进行连接和封装，通过所封装的流的功能调用实现数据读写。处理流的构造方法总是要带一个其他的流对象做参数。一个流对象经过其他流的多次包装，称为流的链接</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>缓冲流：增加缓冲功能，避免频繁读写硬盘，BufferedInputStream、BufferedOutputStream、BufferedReader、BufferedWriter</li>
+<li>转换流：实现字节流和字符流之间的转换，InputStreamReader、OutputStreamReader</li>
+<li>数据流：提供读写Java基础数据类型功能 ，DataInputStream、DataOutputStream</li>
+<li>对象流：提供直接读写Java对象功能，ObjectInputStream、ObjectOutputStream</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>处理流这种设计是装饰模式（Decorator Pattern）也称为包装模式（Wrapper Pattern），其使用一种对客户端透明的方式来动态地扩展对象的功能，它是通过继承扩展功能的替代方案之一</p>
+<h2 id="3、4大顶级抽象父类"><a href="#3、4大顶级抽象父类" class="headerlink" title="3、4大顶级抽象父类"></a>3、4大顶级抽象父类</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>输入流</th>
+<th>输出流</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字节流</td>
+<td>字节输入流InputStream</td>
+<td>字节输出流OutputStream</td>
+</tr>
+<tr>
+<td>字符流</td>
+<td>字符输入流Reader</td>
+<td>字符输出流Writer</td>
+</tr>
+</tbody></table>
+<h1 id="二、字节流"><a href="#二、字节流" class="headerlink" title="二、字节流"></a>二、字节流</h1><h2 id="1、字节输出流【OutputStream】"><a href="#1、字节输出流【OutputStream】" class="headerlink" title="1、字节输出流【OutputStream】"></a>1、字节输出流【OutputStream】</h2><ul>
+<li><p><code>java.io.OutputStream</code>抽象类是表示字节输出流的所有类的超类，将指定的字节信息写出到目的地。它定义了字节输出流的基本共性功能方法</p>
+</li>
+<li><ul>
+<li>public void write(int b) ：将指定的字节输出流。虽然参数为int类型四个字节，但是只会保留一个字节的信息写出</li>
+<li>public void write(byte[] b)：将 b.length字节从指定的字节数组写入此输出流</li>
+<li>public void write(byte[] b, int off, int len) ：从指定的字节数组写入 len字节，从偏移量 off开始输出到此输出流</li>
+<li>public void flush() ：刷新此输出流并强制任何缓冲的输出字节被写出 </li>
+<li>public void close() ：关闭此输出流并释放与此流相关联的任何系统资源</li>
+</ul>
+</li>
+<li><p><code>java.io.FileOutputStream</code>类是文件输出流，用于将数据写出到文件</p>
+</li>
+<li><ul>
+<li>public FileOutputStream(File file)：创建文件输出流以写入由指定的 File对象表示的文件</li>
+<li>public FileOutputStream(String name)： 创建文件输出流以指定的名称写入文件</li>
+<li>public FileOutputStream(File file, boolean append)： 创建文件输出流以写入由指定的 File对象表示的文件 </li>
+<li>public FileOutputStream(String name, boolean append)： 创建文件输出流以指定的名称写入文件</li>
+</ul>
+</li>
+<li><p>当创建一个流对象时，必须传入一个文件路径。如果该文件不存在，会创建该文件。如果有这个文件，会清空这个文件的数据。如果传入的是一个目录，则会报IOException异常</p>
+</li>
+<li><p>系统中的换行： </p>
+</li>
+<li><ul>
+<li>Windows系统里，每行结尾是 <code>回车+换行</code> ，即<code>\r\n</code>；</li>
+<li>Unix系统里，每行结尾只有 <code>换行</code> ，即<code>\n</code>；</li>
+<li>Mac系统里，每行结尾是 <code>回车</code> ，即<code>\r</code>。从 Mac OS X开始与Linux统一。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2、字节输入流【InputStream】"><a href="#2、字节输入流【InputStream】" class="headerlink" title="2、字节输入流【InputStream】"></a>2、字节输入流【InputStream】</h2><ul>
+<li><p><code>java.io.InputStream</code>抽象类是表示字节输入流的所有类的超类，可以读取字节信息到内存中。它定义了字节输入流的基本共性功能方法</p>
+</li>
+<li><ul>
+<li><code>public int read()</code>： 从输入流读取一个字节。返回读取的字节值。虽然读取了一个字节，但是会自动提升为int类型。如果已经到达流末尾，没有数据可读，则返回-1</li>
+<li><code>public int read(byte[] b)</code>： 从输入流中读取一些字节数，并将它们存储到字节数组 b中 。每次最多读取b.length个字节。返回实际读取的字节个数。如果已经到达流末尾，没有数据可读，则返回-1</li>
+<li><code>public int read(byte[] b,int off,int len)</code>：从输入流中读取一些字节数，并将它们存储到字节数组 b中，从b[off]开始存储，每次最多读取len个字节 。返回实际读取的字节个数。如果已经到达流末尾，没有数据可读，则返回-1</li>
+<li><code>public void close()</code> ：关闭此输入流并释放与此流相关联的任何系统资源</li>
+</ul>
+</li>
+<li><p><code>java.io.FileInputStream</code>类是文件输入流，从文件中读取字节</p>
+</li>
+<li><ul>
+<li><code>FileInputStream(File file)</code>：通过打开与实际文件的连接来创建一个 FileInputStream ，该文件由文件系统中的 File对象 file命名</li>
+<li><code>FileInputStream(String name)</code>：通过打开与实际文件的连接来创建一个 FileInputStream ，该文件由文件系统中的路径名 name命名</li>
+</ul>
+</li>
+<li><p>当创建一个流对象时，必须传入一个文件路径。如果文件不存在，会抛出<code>FileNotFoundException</code> 。如果传入的是一个目录，则会报IOException异常</p>
+</li>
+</ul>
+<h1 id="三、字符流"><a href="#三、字符流" class="headerlink" title="三、字符流"></a>三、字符流</h1><p>当使用字节流读取文本文件时，可能会有一个小问题。就是遇到中文字符时，可能不会显示完整的字符，那是因为一个中文字符可能占用多个字节存储。所以Java提供一些字符流类，以字符为单位读写数据，专门用于处理文本文件</p>
+<p>字符流只能操作文本文件，不能操作图片，视频等非文本文件。当我只读写文本文件时使用字符流，其他情况使用字节流</p>
+<h2 id="1、字符输入流【Reader】"><a href="#1、字符输入流【Reader】" class="headerlink" title="1、字符输入流【Reader】"></a>1、字符输入流【Reader】</h2><ul>
+<li><p><code>java.io.Reader</code>抽象类是表示用于读取字符流的所有类的超类，可以读取字符信息到内存中。它定义了字符输入流的基本共性功能方法</p>
+</li>
+<li><ul>
+<li><code>public int read()</code>： 从输入流读取一个字符。 虽然读取了一个字符，但是会自动提升为int类型。返回该字符的Unicode编码值。如果已经到达流末尾了，则返回-1。</li>
+<li><code>public int read(char[] cbuf)</code>： 从输入流中读取一些字符，并将它们存储到字符数组 cbuf中 。每次最多读取cbuf.length个字符。返回实际读取的字符个数。如果已经到达流末尾，没有数据可读，则返回-1</li>
+<li><code>public int read(char[] cbuf,int off,int len)</code>：从输入流中读取一些字符，并将它们存储到字符数组 cbuf中，从cbuf[off]开始的位置存储。每次最多读取len个字符。返回实际读取的字符个数。如果已经到达流末尾，没有数据可读，则返回-1</li>
+<li><code>public void close()</code> ：关闭此流并释放与此流相关联的任何系统资源</li>
+</ul>
+</li>
+<li><p><code>java.io.FileReader</code>类是读取字符文件的便利类。构造时使用系统默认的字符编码和默认字节缓冲区</p>
+</li>
+<li><ul>
+<li><code>FileReader(File file)</code>： 创建一个新的 FileReader ，给定要读取的File对象。</li>
+<li><code>FileReader(String fileName)</code>： 创建一个新的 FileReader ，给定要读取的文件的名称。</li>
+</ul>
+</li>
+<li><p>当创建一个流对象时，必须传入一个文件路径。类似于FileInputStream 。如果该文件不存在，则报FileNotFoundException。如果传入的是一个目录，则会报IOException异常</p>
+</li>
+</ul>
+<h2 id="2、字符输出流【Writer】"><a href="#2、字符输出流【Writer】" class="headerlink" title="2、字符输出流【Writer】"></a>2、字符输出流【Writer】</h2><ul>
+<li><p><code>java.io.Writer</code>抽象类是表示用于写出字符流的所有类的超类，将指定的字符信息写出到目的地。它定义了字节输出流的基本共性功能方法</p>
+</li>
+<li><ul>
+<li><code>public void write(int c)</code> 写入单个字符</li>
+<li><code>public void write(char[] cbuf)</code>写入字符数组</li>
+<li><code>public void write(char[] cbuf, int off, int len)</code>写入字符数组的某一部分,off数组的开始索引,len写的字符个数</li>
+<li><code>public void write(String str)</code>写入字符串</li>
+<li><code>public void write(String str, int off, int len)</code> 写入字符串的某一部分,off字符串的开始索引,len写的字符个数</li>
+<li><code>public void flush()</code>刷新该流的缓冲</li>
+<li><code>public void close()</code> 关闭此流，但要先刷新它</li>
+</ul>
+</li>
+<li><p><code>java.io.FileWriter</code>类是写出字符到文件的便利类。构造时使用系统默认的字符编码和默认字节缓冲区</p>
+</li>
+<li><ul>
+<li><code>FileWriter(File file)</code>： 创建一个新的 FileWriter，给定要读取的File对象</li>
+<li><code>FileWriter(String fileName)</code>： 创建一个新的 FileWriter，给定要读取的文件的名称</li>
+<li><code>public FileWriter(File file,boolean append)</code>： 创建文件输出流以写入由指定的 File对象表示的文件</li>
+<li><code>public FileWriter(String fileName,boolean append)</code>： 创建文件输出流以指定的名称写入文件</li>
+</ul>
+</li>
+<li><p>当创建一个流对象时，必须传入一个文件路径，类似于FileOutputStream。如果文件不存在，则会自动创建。如果文件已经存在，则会清空文件内容，写入新的内容。</p>
+</li>
+</ul>
+<p>因为内置缓冲区的原因，如果不关闭输出流，无法写出字符到文件中。但是关闭的流对象，是无法继续写出数据的。如果我们既想写出数据，又想继续使用流，就需要<code>flush</code> 方法</p>
+<h1 id="四、缓冲流"><a href="#四、缓冲流" class="headerlink" title="四、缓冲流"></a>四、缓冲流</h1><ul>
+<li><p>缓冲流也叫高效流，按照数据类型分类</p>
+</li>
+<li><ul>
+<li>字节缓冲流：<code>BufferedInputStream</code>，<code>BufferedOutputStream</code></li>
+<li>字符缓冲流：<code>BufferedReader</code>，<code>BufferedWriter</code></li>
+</ul>
+</li>
+<li><p>缓冲流的基本原理：创建流对象时，会创建一个内置的默认大小的缓冲区数组，通过缓冲区读写，减少系统IO次数，从而提高读写的效率</p>
+</li>
+<li><ul>
+<li><code>public BufferedInputStream(InputStream in)</code>：创建一个新的字节缓冲输入流</li>
+<li><code>public BufferedOutputStream(OutputStream out)</code>：创建一个新的字节缓冲输出流</li>
+</ul>
+</li>
+<li><ul>
+<li><code>public BufferedReader(Reader in)</code> ：创建一个新的字符缓冲输入流</li>
+<li><code>public BufferedWriter(Writer out)</code>： 创建一个新的字符缓冲输出流</li>
+</ul>
+</li>
+<li><p>字符缓冲流的特有方法</p>
+</li>
+<li><ul>
+<li>BufferedReader：<code>public String readLine()</code>: 读一行文字</li>
+<li>BufferedWriter：<code>public void newLine()</code>: 写一行行分隔符，由系统属性定义符号</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.atguigu.buffer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">IOClose</span> &#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test01</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">FileWriter</span> <span class="variable">fw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;d:/1.txt&quot;</span>);</span><br><span class="line">        <span class="type">BufferedWriter</span> <span class="variable">bw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(fw);</span><br><span class="line"></span><br><span class="line">        bw.write(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"></span><br><span class="line">        fw.close();</span><br><span class="line">        bw.close();<span class="comment">//java.io.IOException: Stream closed</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        缓冲流BufferedWriter，把数据先写到缓冲区，</span></span><br><span class="line"><span class="comment">        默认情况下是当缓冲区满，或调用close，或调用flush这些情况才会把缓冲区的数据输出。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        bw.close()时，需要把数据从缓冲区的数据输出。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        数据的流向： 写到bw（缓冲区）--&gt;fw -&gt;&quot;d:/1.txt&quot;</span></span><br><span class="line"><span class="comment">        此时，我先把fw关闭了，bw的数据无法输出了</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test02</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">FileWriter</span> <span class="variable">fw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;d:/1.txt&quot;</span>);</span><br><span class="line">        <span class="type">BufferedWriter</span> <span class="variable">bw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(fw);</span><br><span class="line"></span><br><span class="line">        bw.write(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"></span><br><span class="line">        bw.close();</span><br><span class="line">        fw.close();</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        原则：</span></span><br><span class="line"><span class="comment">        先关外面的，再关里面的。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        例如：</span></span><br><span class="line"><span class="comment">        FileWriter fw = new FileWriter(&quot;d:/1.txt&quot;); //里面        穿内衣</span></span><br><span class="line"><span class="comment">        BufferedWriter bw = new BufferedWriter(fw); //外面        穿外套</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        关闭</span></span><br><span class="line"><span class="comment">        bw.close();  //先关外面的                                先脱外套</span></span><br><span class="line"><span class="comment">        fw.close(); //再关里面的                                 再脱内衣</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="五、转换流"><a href="#五、转换流" class="headerlink" title="五、转换流"></a>五、转换流</h1><h2 id="1、InputStreamReader类"><a href="#1、InputStreamReader类" class="headerlink" title="1、InputStreamReader类"></a>1、InputStreamReader类</h2><ul>
+<li><p>转换流<code>java.io.InputStreamReader</code>，是Reader的子类，是从字节流到字符流的桥梁。它读取字节，并使用指定的字符集将其解码为字符。它的字符集可以由名称指定，也可以接受平台的默认字符集</p>
+</li>
+<li><ul>
+<li><code>InputStreamReader(InputStream in)</code>: 创建一个使用默认字符集的字符流</li>
+<li><code>InputStreamReader(InputStream in, String charsetName)</code>: 创建一个指定字符集的字符流</li>
+</ul>
+</li>
+</ul>
+<h2 id="2、OutputStreamWriter类"><a href="#2、OutputStreamWriter类" class="headerlink" title="2、OutputStreamWriter类"></a>2、OutputStreamWriter类</h2><ul>
+<li><p>转换流<code>java.io.OutputStreamWriter</code> ，是Writer的子类，是从字符流到字节流的桥梁。使用指定的字符集将字符编码为字节。它的字符集可以由名称指定，也可以接受平台的默认字符集</p>
+</li>
+<li><ul>
+<li><code>OutputStreamWriter(OutputStream in)</code>: 创建一个使用默认字符集的字符流</li>
+<li><code>OutputStreamWriter(OutputStream in, String charsetName)</code>: 创建一个指定字符集的字符流</li>
+</ul>
+</li>
+</ul>
+<h1 id="六、数据流与对象流"><a href="#六、数据流与对象流" class="headerlink" title="六、数据流与对象流"></a>六、数据流与对象流</h1><ul>
+<li><p><code>DataOutputStream</code>：数据输出流允许应用程序以适当方式将基本 Java 数据类型写入输出流中。然后，应用程序可以使用数据输入流（DataInputStream）将数据读入</p>
+</li>
+<li><p><code>DataInputStream</code>：数据输入流允许应用程序以与机器无关方式从底层输入流中读取基本 Java 数据类型</p>
+</li>
+<li><p><code>ObjectOutputStream</code>：将 Java 基本数据类型和对象写入字节输出流中。稍后可以使用 ObjectInputStream 将数据读入。通过在流中使用文件可以实现Java各种基本数据类型的数据以及对象的持久存储。如果流是网络套接字流，则可以在另一台主机上或另一个进程中接收这些数据或重构对象</p>
+</li>
+<li><p><code>ObjectInputStream</code>：ObjectInputStream 对以前使用 ObjectOutputStream 写入的基本数据和对象进行反序列化</p>
+</li>
+<li><ul>
+<li><code>public ObjectOutputStream(OutputStream out)</code>： 创建一个指定OutputStream的ObjectOutputStream</li>
+<li><code>public ObjectInputStream(InputStream in)</code>： 创建一个指定InputStream的ObjectInputStream</li>
+</ul>
+</li>
+</ul>
+<h2 id="1、使用对象流读写各种类型的数据"><a href="#1、使用对象流读写各种类型的数据" class="headerlink" title="1、使用对象流读写各种类型的数据"></a>1、使用对象流读写各种类型的数据</h2><ul>
+<li><p>ObjectOutpuStream也从OutputStream父类中继承基本方法：</p>
+</li>
+<li><ul>
+<li><code>public void write(int b)</code> ：将指定的字节输出流。虽然参数为int类型四个字节，但是只会保留一个字节的信息写出</li>
+<li><code>public void write(byte[] b)</code>：将 b.length字节从指定的字节数组写入此输出流</li>
+<li><code>public void write(byte[] b, int off, int len)</code> ：从指定的字节数组写入 len字节，从偏移量 off开始输出到此输出流</li>
+<li><code>public void flush()</code> ：刷新此输出流并强制任何缓冲的输出字节被写出</li>
+<li><code>public void close()</code> ：关闭此输出流并释放与此流相关联的任何系统资源</li>
+</ul>
+</li>
+<li><ul>
+<li><code>writeBoolean()</code>：写入一个boolean值</li>
+<li><code>writeByte()</code>：写入一个8位字节</li>
+<li><code>writeShort()</code>：写入一个16位的short值</li>
+<li><code>writeChar()</code>：写入一个16位的char值</li>
+<li><code>writeInt()</code>：写入一个32位的int值</li>
+<li><code>writeLong()</code>：写入一个64位的long值</li>
+<li><code>writeFloat()</code>：写入一个32位的float值</li>
+<li><code>writeDouble()</code>：写入一个64位的double值</li>
+<li><code>public void writeUTF(String str)</code>：将表示长度信息的两个字节写入输出流，后跟字符串 s 中每个字符的 UTF-8 修改版表示形式。如果 s 为 null，则抛出 NullPointerException。根据字符的值，将字符串 s 中每个字符转换成一个字节、两个字节或三个字节的字节组。注意，将 String 作为基本数据写入流中与将它作为 Object 写入流中明显不同</li>
+</ul>
+</li>
+<li><p>ObjectInputStream除了从InputStream父类中继承基本方法之外，还有以下方法</p>
+</li>
+<li><ul>
+<li><code>public int read()</code>： 从输入流读取一个字节。返回读取的字节值。虽然读取了一个字节，但是会自动提升为int类型。如果已经到达流末尾，没有数据可读，则返回-1</li>
+<li><code>public int read(byte[] b)</code>： 从输入流中读取一些字节数，并将它们存储到字节数组 b中 。每次最多读取b.length个字节。返回实际读取的字节个数。如果已经到达流末尾，没有数据可读，则返回-1</li>
+<li><code>public int read(byte[] b,int off,int len)</code>：从输入流中读取一些字节数，并将它们存储到字节数组 b中，从b[off]开始存储，每次最多读取len个字节 。返回实际读取的字节个数。如果已经到达流末尾，没有数据可读，则返回-1</li>
+<li><code>public void close()</code> ：关闭此输入流并释放与此流相关联的任何系统资源</li>
+</ul>
+</li>
+<li><ul>
+<li><code>readBoolean()</code>：读取一个boolean值</li>
+<li><code>readByte()</code>：读取一个8位的字节</li>
+<li><code>readShort()</code>：读取一个16位的short值</li>
+<li><code>readChar()</code>：读取一个16位的char 值</li>
+<li><code>readInt()</code>：读取一个32位的int 值</li>
+<li><code>readLong()</code>：读取一个64位的long值</li>
+<li><code>readFloat()</code>：读取一个32位的float值</li>
+<li><code>readDouble()</code>：读取一个 64位的double值</li>
+<li><code>readUTF()</code>：读取UTF-8修改版格式的String</li>
+</ul>
+</li>
+</ul>
+<h2 id="2、序列化与反序列化概念"><a href="#2、序列化与反序列化概念" class="headerlink" title="2、序列化与反序列化概念"></a>2、序列化与反序列化概念</h2><ul>
+<li><p>Java 提供了一种对象序列化的机制。用一个字节序列可以表示一个对象，该字节序列包含该<code>对象的类型</code>和<code>对象中存储的属性</code>等信息。字节序列写出到文件之后，相当于文件中持久保存了一个对象的信息</p>
+</li>
+<li><p>反之，该字节序列还可以从文件中读取回来，重构对象，对它进行反序列化。<code>对象的数据</code>、<code>对象的类型</code>和<code>对象中存储的数据</code>信息，都可以用来在内存中创建对象</p>
+</li>
+<li><p>ObjectOutputStream流中支持序列化的方法是：</p>
+</li>
+<li><ul>
+<li><code>public final void writeObject (Object obj)</code> : 将指定的对象写出</li>
+</ul>
+</li>
+<li><p>ObjectInputStream流中支持反序列化的方法是：</p>
+</li>
+<li><ul>
+<li><code>public final Object readObject ()</code> : 读取一个对象</li>
+</ul>
+</li>
+</ul>
+<h2 id="3、Serializable序列化接口与transient关键字"><a href="#3、Serializable序列化接口与transient关键字" class="headerlink" title="3、Serializable序列化接口与transient关键字"></a>3、Serializable序列化接口与transient关键字</h2><ul>
+<li>某个类的对象需要序列化输出时，该类必须实现<code>java.io.Serializable</code> 接口，<code>Serializable</code> 是一个标记接口，不实现此接口的类将不会使任何状态序列化或反序列化，会抛出<code>NotSerializableException</code></li>
+<li>如果对象的某个属性也是引用数据类型，那么如果该属性也要序列化的话，也要实现<code>Serializable</code> 接口 </li>
+<li>该类的所有属性必须是可序列化的。如果有一个属性不需要可序列化的，则该属性必须注明是瞬态的，使用<code>transient</code> 关键字修饰 </li>
+<li>静态变量的值不会序列化。因为静态变量的值不属于某个对象</li>
+</ul>
+<p>如果有多个对象需要序列化，则可以将对象放到集合中，再序列化集合对象即可</p>
+<h2 id="4、反序列化失败问题"><a href="#4、反序列化失败问题" class="headerlink" title="4、反序列化失败问题"></a>4、反序列化失败问题</h2><ul>
+<li><p>首先，对于JVM可以反序列化对象，它必须是能够找到class文件的类。如果找不到该类的class文件，则抛出一个 <code>ClassNotFoundException</code> 异常</p>
+</li>
+<li><p>其次，当JVM反序列化对象时，能找到class文件，但是class文件在序列化对象之后发生了修改，那么反序列化操作也会失败，抛出一个<code>InvalidClassException</code>异常。发生这个异常的原因如下：</p>
+</li>
+<li><ul>
+<li>该类的序列版本号与从流中读取的类描述符的版本号不匹配</li>
+<li>该类包含未知数据类型</li>
+</ul>
+</li>
+<li><p><code>Serializable</code> 接口给需要序列化的类，提供了一个序列版本号。<code>serialVersionUID</code> 该版本号的目的在于验证序列化的对象和对应类是否版本匹配。如果没有声明serialVersionUID，则每次编译都会产生新的serialVersionUID序列化版本ID值，这样如果在序列化完成之后修改了类导致类重新编译，则原来的数据将无法反序列化。所以通常我们都会在实现Serializable接口时，声明一个serialVersionUID，并为其指定一个值。serialVersionUID必须是static和final修饰的long类型的数据，它的值由程序员随意指定即可</p>
+</li>
+<li><p>如果声明了serialVersionUID，即使在序列化完成之后修改了类导致类重新编译，则原来的数据也能正常反序列化，只是新增的字段值是默认值而已</p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://wuqiuxu.github.io">Wuqiuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://wuqiuxu.github.io/post/59ae8782.html">https://wuqiuxu.github.io/post/59ae8782.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://wuqiuxu.github.io" target="_blank">妙妙屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a></div><div class="post_share"><div class="social-share" data-image="/img/java.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/3a3aa666.html" title="Java网络编程"><img class="cover" src="/img/java.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java网络编程</div></div></a></div><div class="next-post pull-right"><a href="/post/a14eb637.html" title="Java泛型"><img class="cover" src="/img/java.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java泛型</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/fa358471.html" title="Java反射"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java反射</div></div></a></div><div><a href="/post/ea538f2a.html" title="Java基础语法"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java基础语法</div></div></a></div><div><a href="/post/a2c3ad19.html" title="Java多线程"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java多线程</div></div></a></div><div><a href="/post/1630b670.html" title="Java常用API"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java常用API</div></div></a></div><div><a href="/post/f495a96f.html" title="Java异常"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java异常</div></div></a></div><div><a href="/post/e3345db4.html" title="Java数组"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java数组</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wuqiuxu</div><div class="author-info__description">鸟随鸾凤飞腾远</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wuqiuxu" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fa-brands fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://i.postimg.cc/660kspWH/image.jpg" rel="external nofollow noreferrer" target="_blank" title="Wechat"><i class="fa-brands fa-weixin" style="color: #05DC6C;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81IO%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">一、IO概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFIO"><span class="toc-number">1.1.</span> <span class="toc-text">1、什么是IO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81IO%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">2、IO的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%814%E5%A4%A7%E9%A1%B6%E7%BA%A7%E6%8A%BD%E8%B1%A1%E7%88%B6%E7%B1%BB"><span class="toc-number">1.3.</span> <span class="toc-text">3、4大顶级抽象父类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AD%97%E8%8A%82%E6%B5%81"><span class="toc-number">2.</span> <span class="toc-text">二、字节流</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%AD%97%E8%8A%82%E8%BE%93%E5%87%BA%E6%B5%81%E3%80%90OutputStream%E3%80%91"><span class="toc-number">2.1.</span> <span class="toc-text">1、字节输出流【OutputStream】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%AD%97%E8%8A%82%E8%BE%93%E5%85%A5%E6%B5%81%E3%80%90InputStream%E3%80%91"><span class="toc-number">2.2.</span> <span class="toc-text">2、字节输入流【InputStream】</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AD%97%E7%AC%A6%E6%B5%81"><span class="toc-number">3.</span> <span class="toc-text">三、字符流</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%AD%97%E7%AC%A6%E8%BE%93%E5%85%A5%E6%B5%81%E3%80%90Reader%E3%80%91"><span class="toc-number">3.1.</span> <span class="toc-text">1、字符输入流【Reader】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%AD%97%E7%AC%A6%E8%BE%93%E5%87%BA%E6%B5%81%E3%80%90Writer%E3%80%91"><span class="toc-number">3.2.</span> <span class="toc-text">2、字符输出流【Writer】</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%BC%93%E5%86%B2%E6%B5%81"><span class="toc-number">4.</span> <span class="toc-text">四、缓冲流</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E8%BD%AC%E6%8D%A2%E6%B5%81"><span class="toc-number">5.</span> <span class="toc-text">五、转换流</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81InputStreamReader%E7%B1%BB"><span class="toc-number">5.1.</span> <span class="toc-text">1、InputStreamReader类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81OutputStreamWriter%E7%B1%BB"><span class="toc-number">5.2.</span> <span class="toc-text">2、OutputStreamWriter类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%8E%E5%AF%B9%E8%B1%A1%E6%B5%81"><span class="toc-number">6.</span> <span class="toc-text">六、数据流与对象流</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E4%BD%BF%E7%94%A8%E5%AF%B9%E8%B1%A1%E6%B5%81%E8%AF%BB%E5%86%99%E5%90%84%E7%A7%8D%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">6.1.</span> <span class="toc-text">1、使用对象流读写各种类型的数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%A6%82%E5%BF%B5"><span class="toc-number">6.2.</span> <span class="toc-text">2、序列化与反序列化概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81Serializable%E5%BA%8F%E5%88%97%E5%8C%96%E6%8E%A5%E5%8F%A3%E4%B8%8Etransient%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">6.3.</span> <span class="toc-text">3、Serializable序列化接口与transient关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98"><span class="toc-number">6.4.</span> <span class="toc-text">4、反序列化失败问题</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/2c831fb.html" title="Linux概述及常用命令"><img src="/img/linux.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux概述及常用命令"/></a><div class="content"><a class="title" href="/post/2c831fb.html" title="Linux概述及常用命令">Linux概述及常用命令</a><time datetime="2023-06-20T14:39:54.000Z" title="发表于 2023-06-20 22:39:54">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/1630b670.html" title="Java常用API"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java常用API"/></a><div class="content"><a class="title" href="/post/1630b670.html" title="Java常用API">Java常用API</a><time datetime="2023-06-20T13:48:19.000Z" title="发表于 2023-06-20 21:48:19">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/4ea1809c.html" title="Java正则表达式"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java正则表达式"/></a><div class="content"><a class="title" href="/post/4ea1809c.html" title="Java正则表达式">Java正则表达式</a><time datetime="2023-06-20T13:48:11.000Z" title="发表于 2023-06-20 21:48:11">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/fa358471.html" title="Java反射"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java反射"/></a><div class="content"><a class="title" href="/post/fa358471.html" title="Java反射">Java反射</a><time datetime="2023-06-20T13:48:00.000Z" title="发表于 2023-06-20 21:48:00">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/3a3aa666.html" title="Java网络编程"><img src="/img/java.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java网络编程"/></a><div class="content"><a class="title" href="/post/3a3aa666.html" title="Java网络编程">Java网络编程</a><time datetime="2023-06-20T13:47:56.000Z" title="发表于 2023-06-20 21:47:56">2023-06-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/default.png')"><div id="footer-wrap"><div class="copyright">&copy;2023 By Wuqiuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addModeChange('mermaid', runMermaid)
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>
