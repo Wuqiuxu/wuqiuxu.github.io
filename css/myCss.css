@@ -5,7 +5,7 @@
   }
 
 #planet_rel {
-    width: 765px;
+    width: 780px;
     height:600px;
     border-radius: 10px;
     /* border: 1px solid rgba(0, 0, 0, 0.2); */
@@ -17,7 +17,7 @@
   
 
 #planet_pi {
-  width: 760px;
+  width: 780px;
   height:300px;
   border-radius: 10px;
   /*border: 1px solid rgba(0, 0, 0, 0.2);*/
@@ -27,6 +27,40 @@
 
 }
 
+#planet_heatmap {
+  width: 780px;
+  height:250px;
+  border-radius: 10px;
+  /*border: 1px solid rgba(0, 0, 0, 0.2);*/
+  overflow: auto;
+  margin-left: 8px;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+}
+
 .planet_title{
-  margin-left: 43%;
+  margin-left: 10px;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center; /* 垂直居中对齐图片和标题 */
+}
+
+.image {
+  width: 60px; /* 设置图片宽度 */
+  height: auto; /* 让高度自适应 */
+  margin-right: 10px; /* 调整图片和标题之间的间距 */
+}
+
+#article-container img {
+    display: block;
+    margin: 0 0 0 10px;
+    max-width: 100%;
+    -webkit-transition: filter 375ms ease-in 0.2s;
+    -moz-transition: filter 375ms ease-in 0.2s;
+    -o-transition: filter 375ms ease-in 0.2s;
+    -ms-transition: filter 375ms ease-in 0.2s;
+    transition: filter 375ms ease-in 0.2s;
 }
