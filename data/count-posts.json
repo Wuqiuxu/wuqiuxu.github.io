@@ -1,8 +1,8 @@
 {
-  "countTotal": 24,
+  "countTotal": 25,
   "countByDay": {
     "2023-06-19": 6,
-    "2023-06-20": 16,
+    "2023-06-20": 17,
     "2023-06-16": 2
   },
   "countByDayArray": [
@@ -12,7 +12,7 @@
     },
     {
       "date": "2023-06-20",
-      "count": 16
+      "count": 17
     },
     {
       "date": "2023-06-16",
@@ -20,21 +20,21 @@
     }
   ],
   "countByMonth": {
-    "2023-06": 24
+    "2023-06": 25
   },
   "countByMonthArray": [
     {
       "date": "2023-06",
-      "count": 24
+      "count": 25
     }
   ],
   "countByYear": {
-    "2023": 24
+    "2023": 25
   },
   "countByYearArray": [
     {
       "date": "2023",
-      "count": 24
+      "count": 25
     }
   ],
   "countCates": 8,
@@ -44,7 +44,7 @@
       "name": "数据库"
     },
     {
-      "value": 1,
+      "value": 2,
       "name": "开发工具"
     },
     {
@@ -72,7 +72,7 @@
       "name": "web开发"
     },
     {
-      "value": 24,
+      "value": 25,
       "itemStyle": {
         "color": "none",
         "decal": {
@@ -96,10 +96,13 @@
       "Java": 15
     },
     {
+      "Linux": 2
+    },
+    {
       "Pandas": 1
     },
     {
-      "Python": 2
+      "Python": 3
     },
     {
       "Request Python": 1
@@ -108,10 +111,13 @@
       "Shell": 1
     },
     {
-      "Linux": 1
+      "kafka": 1
     },
     {
-      "kafka": 1
+      "selenium": 1
+    },
+    {
+      "python": 1
     },
     {
       "Hexo": 1
@@ -123,13 +129,7 @@
       "Markdown": 1
     },
     {
-      "selenium": 1
-    },
-    {
-      "python": 2
-    },
-    {
-      "django": 1
+      "Django": 1
     }
   ],
   "combinedObject": {
@@ -138,8 +138,8 @@
         "id": 1,
         "category": "HBase",
         "symbolSize": 5,
-        "x": 98,
-        "y": -31,
+        "x": -139,
+        "y": -255,
         "value": 1,
         "name": "HBase"
       },
@@ -147,8 +147,8 @@
         "id": 2,
         "category": "IDEA",
         "symbolSize": 5,
-        "x": 234,
-        "y": -225,
+        "x": -9,
+        "y": 280,
         "value": 1,
         "name": "IDEA"
       },
@@ -156,118 +156,118 @@
         "id": 3,
         "category": "Java",
         "symbolSize": 75,
-        "x": -149,
-        "y": -190,
+        "x": 299,
+        "y": 46,
         "value": 15,
         "name": "Java"
       },
       {
         "id": 4,
+        "category": "Linux",
+        "symbolSize": 10,
+        "x": 133,
+        "y": -138,
+        "value": 2,
+        "name": "Linux"
+      },
+      {
+        "id": 5,
         "category": "Pandas",
         "symbolSize": 5,
-        "x": -63,
-        "y": -54,
+        "x": 236,
+        "y": -193,
         "value": 1,
         "name": "Pandas"
       },
       {
-        "id": 5,
+        "id": 6,
         "category": "Python",
-        "symbolSize": 10,
-        "x": -298,
-        "y": 164,
-        "value": 2,
+        "symbolSize": 15,
+        "x": 171,
+        "y": -45,
+        "value": 3,
         "name": "Python"
       },
       {
-        "id": 6,
+        "id": 7,
         "category": "Request Python",
         "symbolSize": 5,
-        "x": 95,
-        "y": -184,
+        "x": -52,
+        "y": 65,
         "value": 1,
         "name": "Request Python"
       },
       {
-        "id": 7,
+        "id": 8,
         "category": "Shell",
         "symbolSize": 5,
-        "x": -291,
-        "y": 96,
+        "x": -259,
+        "y": -152,
         "value": 1,
         "name": "Shell"
-      },
-      {
-        "id": 8,
-        "category": "Linux",
-        "symbolSize": 5,
-        "x": -271,
-        "y": 66,
-        "value": 1,
-        "name": "Linux"
       },
       {
         "id": 9,
         "category": "kafka",
         "symbolSize": 5,
-        "x": -232,
-        "y": -52,
+        "x": -84,
+        "y": -135,
         "value": 1,
         "name": "kafka"
       },
       {
         "id": 10,
-        "category": "Hexo",
-        "symbolSize": 5,
-        "x": 268,
-        "y": 272,
-        "value": 1,
-        "name": "Hexo"
-      },
-      {
-        "id": 11,
-        "category": "Javascript",
-        "symbolSize": 5,
-        "x": -25,
-        "y": -157,
-        "value": 1,
-        "name": "Javascript"
-      },
-      {
-        "id": 12,
-        "category": "Markdown",
-        "symbolSize": 5,
-        "x": -158,
-        "y": 121,
-        "value": 1,
-        "name": "Markdown"
-      },
-      {
-        "id": 13,
         "category": "selenium",
         "symbolSize": 5,
-        "x": -180,
-        "y": 103,
+        "x": 51,
+        "y": 241,
         "value": 1,
         "name": "selenium"
       },
       {
-        "id": 14,
+        "id": 11,
         "category": "python",
-        "symbolSize": 10,
-        "x": 242,
-        "y": -212,
-        "value": 2,
+        "symbolSize": 5,
+        "x": 16,
+        "y": -219,
+        "value": 1,
         "name": "python"
       },
       {
-        "id": 15,
-        "category": "django",
+        "id": 12,
+        "category": "Hexo",
         "symbolSize": 5,
-        "x": -158,
-        "y": -183,
+        "x": 233,
+        "y": -72,
         "value": 1,
-        "name": "django"
+        "name": "Hexo"
+      },
+      {
+        "id": 13,
+        "category": "Javascript",
+        "symbolSize": 5,
+        "x": -165,
+        "y": 193,
+        "value": 1,
+        "name": "Javascript"
+      },
+      {
+        "id": 14,
+        "category": "Markdown",
+        "symbolSize": 5,
+        "x": 219,
+        "y": -299,
+        "value": 1,
+        "name": "Markdown"
+      },
+      {
+        "id": 15,
+        "category": "Django",
+        "symbolSize": 5,
+        "x": -199,
+        "y": 252,
+        "value": 1,
+        "name": "Django"
       }
     ],
     "links": [
@@ -343,6 +343,9 @@
         "name": "Java"
       },
       {
+        "name": "Linux"
+      },
+      {
         "name": "Pandas"
       },
       {
@@ -355,10 +358,13 @@
         "name": "Shell"
       },
       {
-        "name": "Linux"
+        "name": "kafka"
       },
       {
-        "name": "kafka"
+        "name": "selenium"
+      },
+      {
+        "name": "python"
       },
       {
         "name": "Hexo"
@@ -370,13 +376,7 @@
         "name": "Markdown"
       },
       {
-        "name": "selenium"
-      },
-      {
-        "name": "python"
-      },
-      {
-        "name": "django"
+        "name": "Django"
       }
     ]
   }
