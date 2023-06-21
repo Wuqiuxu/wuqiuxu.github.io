@@ -1,0 +1,584 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Java枚举、接口和注解 | 妙妙屋</title><meta name="author" content="Wuqiuxu"><meta name="copyright" content="Wuqiuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="一、枚举类 枚举类型本质上也是一种类，只不过是这个类的对象是固定的，不能随意让用户创建   在JDK1.5之前，需要程序员自己通过特殊的方式来定义枚举类型     构造器加private私有化 本类内部创建一组常量对象，并添加public static final修饰符      在JDK1.5之后，Java支持enum关键字来快速的定义枚举类型     enum关键字声明 构造器只允许priva">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java枚举、接口和注解">
+<meta property="og:url" content="https://wuqiuxu.github.io/post/76720176.html">
+<meta property="og:site_name" content="妙妙屋">
+<meta property="og:description" content="一、枚举类 枚举类型本质上也是一种类，只不过是这个类的对象是固定的，不能随意让用户创建   在JDK1.5之前，需要程序员自己通过特殊的方式来定义枚举类型     构造器加private私有化 本类内部创建一组常量对象，并添加public static final修饰符      在JDK1.5之后，Java支持enum关键字来快速的定义枚举类型     enum关键字声明 构造器只允许priva">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wuqiuxu.github.io/img/java.png">
+<meta property="article:published_time" content="2023-06-20T13:47:17.000Z">
+<meta property="article:modified_time" content="2023-06-20T13:56:03.860Z">
+<meta property="article:author" content="Wuqiuxu">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wuqiuxu.github.io/img/Psyduck.png"><link rel="shortcut icon" href="/img/Psyduck.png"><link rel="canonical" href="https://wuqiuxu.github.io/post/76720176.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?5bacdf5f7eaeeca2624a134c063a96c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"V9Z0XHM9DP","apiKey":"fa27b7a048b6171f01dadf98cba8a3fd","indexName":"blog","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":0,"languages":{"author":"作者: Wuqiuxu","link":"链接: ","source":"来源: 妙妙屋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java枚举、接口和注解',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-20 21:56:03'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4125923_iosihe4hf8q.css"><link rel="stylesheet" href="/css/myCss.css"><script src="https://code.jquery.com/jquery-1.7.2.min.js"></script><script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/planet/"><i class="fa-fw fa-solid fa-book"></i><span> 知识星球</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 创作集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/crawler/"><i class="fa-fw fa-solid fa-spider"></i><span> 爬虫</span></a></li><li><a class="site-page child" href="/datadev/"><i class="fa-fw fa-solid fa-database"></i><span> 数据开发</span></a></li><li><a class="site-page child" href="/dataanal/"><i class="fa-fw fa-solid fa-chart-simple"></i><span> 数据分析</span></a></li><li><a class="site-page child" href="/improve/"><i class="fa-fw fa-solid fa-clock"></i><span> 工作提效</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-book"></i><span> 文档&amp;工具</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-user"></i><span> 关于博主</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/default.png')"><nav id="nav"><span id="blog-info"><a href="/" title="妙妙屋"><img class="site-icon" src="/img/Psyduck.png"/><span class="site-name">妙妙屋</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/planet/"><i class="fa-fw fa-solid fa-book"></i><span> 知识星球</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 创作集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/crawler/"><i class="fa-fw fa-solid fa-spider"></i><span> 爬虫</span></a></li><li><a class="site-page child" href="/datadev/"><i class="fa-fw fa-solid fa-database"></i><span> 数据开发</span></a></li><li><a class="site-page child" href="/dataanal/"><i class="fa-fw fa-solid fa-chart-simple"></i><span> 数据分析</span></a></li><li><a class="site-page child" href="/improve/"><i class="fa-fw fa-solid fa-clock"></i><span> 工作提效</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-book"></i><span> 文档&amp;工具</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-user"></i><span> 关于博主</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java枚举、接口和注解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-20T13:47:17.000Z" title="发表于 2023-06-20 21:47:17">2023-06-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-20T13:56:03.860Z" title="更新于 2023-06-20 21:56:03">2023-06-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Java枚举、接口和注解"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一、枚举类"><a href="#一、枚举类" class="headerlink" title="一、枚举类"></a>一、枚举类</h1><ul>
+<li><p>枚举类型本质上也是一种类，只不过是这个类的对象是固定的，不能随意让用户创建</p>
+</li>
+<li><ul>
+<li>在JDK1.5之前，需要程序员自己通过特殊的方式来定义枚举类型</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>构造器加private私有化</li>
+<li>本类内部创建一组常量对象，并添加public static final修饰符</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li>在JDK1.5之后，Java支持enum关键字来快速的定义枚举类型</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>enum关键字声明</li>
+<li>构造器只允许private修饰（默认，可不写）</li>
+<li>必须在类体第一部分（第一个分号前）给出若干本类的属性，属性之间逗号隔开</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">【修饰符】 <span class="keyword">enum</span> 枚举类名&#123;</span><br><span class="line">    常量对象列表</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">【修饰符】 <span class="keyword">enum</span> 枚举类名&#123;</span><br><span class="line">    常量对象列表;</span><br><span class="line">    </span><br><span class="line">    其他成员列表;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、枚举注意事项"><a href="#二、枚举注意事项" class="headerlink" title="二、枚举注意事项"></a>二、枚举注意事项</h1><ul>
+<li><ul>
+<li>常量名：枚举类的常量对象列表必须在枚举类的首行，因为是常量，所以建议大写</li>
+<li>常量：如果常量对象列表后面没有其他代码，那么<code>;</code>可以省略，否则不可以省略</li>
+<li>构造器：</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>默认提供的是private的无参构造，常量对象列表不用加参数</li>
+<li>如有参构造需要手动定义，private可省略，调用有参构造的方法：<code>常量对象名(实参列表)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li>继承：枚举类默认继承的是java.lang.Enum类，因此不能再继承其他的类型</li>
+<li>枚举类型如有其它属性，建议这些属性也声明为final的，因为常量对象在逻辑意义上应该不可变</li>
+</ul>
+</li>
+</ul>
+<h1 id="三、枚举类常用方法"><a href="#三、枚举类常用方法" class="headerlink" title="三、枚举类常用方法"></a>三、枚举类常用方法</h1><ul>
+<li><ul>
+<li><code>String toString()</code>：Enum自定义重写了toString()，默认返回的是常量名（对象名）</li>
+<li><code>String name()</code>：返回的是常量名（对象名）</li>
+<li><code>int ordinal()</code>：返回常量的次序号，默认从0开始</li>
+<li><code>枚举类型[] values()</code>:返回该枚举类的所有的常量对象，类型为当前枚举的数组类型，是静态方法</li>
+<li><code>枚举类型 valueOf(String name)</code>：根据枚举常量对象名称获取枚举对象</li>
+</ul>
+</li>
+</ul>
+<h1 id="四、接口成员"><a href="#四、接口成员" class="headerlink" title="四、接口成员"></a>四、接口成员</h1><ul>
+<li>接口里通常是定义一组公共方法，的定义与定义类方式相似，但是使用 <code>interface</code> 关键字</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">【修饰符】 interface 接口名&#123;</span><br><span class="line">    <span class="comment">//接口的成员列表：</span></span><br><span class="line">    <span class="comment">// 公共的静态常量 </span></span><br><span class="line">    <span class="comment">// 公共的抽象方法</span></span><br><span class="line">    <span class="comment">// 公共的默认方法（JDK1.8以上）</span></span><br><span class="line">    <span class="comment">// 公共的静态方法（JDK1.8以上）</span></span><br><span class="line">    <span class="comment">// 私有方法（JDK1.9以上）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>接口名要大写，等于常量</p>
+</li>
+<li><p>接口的成员</p>
+</li>
+<li><ul>
+<li>在JDK8之前，接口中只允许出现：</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>公共的静态的常量：<code>public static final</code>（默认，可省略）</li>
+<li>公共的抽象的方法：<code>public abstract</code>（默认，可省略）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li>在JDK1.8时，接口中允许声明默认方法和静态方法：</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>公共的默认的方法：<code>public default</code>（public默认，可省略）</li>
+<li>公共的静态的方法：<code>public static</code>（public默认，可省略）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li>在JDK1.9时，接口又增加了：</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>私有方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li>除此之外，接口中不能有其他成员，因为接口中没有成员变量需要动态初始化</li>
+</ul>
+</li>
+</ul>
+<p>接口也会被编译成.class文件，但它并不是类</p>
+<h1 id="五、接口的实现"><a href="#五、接口的实现" class="headerlink" title="五、接口的实现"></a>五、接口的实现</h1><ul>
+<li><p>接口不能直接创建对象，只能创建实现类的对象，接口类型的变量可以与实现类对象构成多态引用</p>
+</li>
+<li><p>类实现接口（implements）：类与接口的关系为实现关系，即类实现接口，该类可以称为接口的实现类，也可以称为接口的子类。实现的动作类似继承，格式相仿，只是关键字不同，实现使用 <code>implements</code>关键字，格式：<code>【修饰符】 class 实现类 【extends 父类】 implements 接口</code></p>
+</li>
+<li><ul>
+<li>抽象方法：如果接口的实现类是非抽象类，那么需要重写</li>
+<li>默认方法：可以重写，但重写时不需要<code>default</code>，它只用于在接口中表示默认方法</li>
+<li>静态方法：不能被继承也不能被重写，可以通过接口名直接调用接口的静态方法和静态常量，不能通过实现类的对象进行调用</li>
+</ul>
+</li>
+</ul>
+<h2 id="1、接口的多实现（implements）"><a href="#1、接口的多实现（implements）" class="headerlink" title="1、接口的多实现（implements）"></a>1、接口的多实现（implements）</h2><ul>
+<li>多实现：一个类能继承一个父类，同时实现多个接口</li>
+<li>实现格式：<code>【修饰符】 class 实现类 【extends 父类】 implements 接口1，接口2，接口3...</code></li>
+<li>如果抽象方法有重名的，只需要实现一次</li>
+</ul>
+<p>接口类型的变量与实现类的对象之间，也可以构成多态引用</p>
+<h2 id="2、接口的多继承-（extends"><a href="#2、接口的多继承-（extends" class="headerlink" title="2、接口的多继承  （extends)"></a>2、接口的多继承  （extends)</h2><ul>
+<li>多继承：一个接口能继承另一个或者多个接口，接口的继承也使用 <code>extends</code> 关键字</li>
+<li>如果抽象方法有重名的，只需要重写一次</li>
+</ul>
+<h1 id="六、接口的冲突问题"><a href="#六、接口的冲突问题" class="headerlink" title="六、接口的冲突问题"></a>六、接口的冲突问题</h1><ul>
+<li><p>当一个类既继承一个父类，又实现若干个接口时，父类中的成员方法与接口中的抽象方法重名</p>
+</li>
+<li><ul>
+<li>不重写：默认保留父类（亲爹优先原则）</li>
+<li>重写调用父类：<code>super.方法名()</code></li>
+<li>重写调用父接口：<code>接口名.super.方法名()</code></li>
+<li>完全重写</li>
+</ul>
+</li>
+<li><p>当一个类同时实现了多个父接口，而多个父接口中包含方法签名相同的默认方法</p>
+</li>
+<li><ul>
+<li>重写保留其中一个：<code>接口名.super.方法名()</code></li>
+<li>完全重写</li>
+</ul>
+</li>
+</ul>
+<h1 id="七、经典接口介绍"><a href="#七、经典接口介绍" class="headerlink" title="七、经典接口介绍"></a>七、经典接口介绍</h1><h2 id="1、java-lang-Comparable"><a href="#1、java-lang-Comparable" class="headerlink" title="1、java.lang.Comparable"></a>1、java.lang.Comparable</h2><ul>
+<li>Java给所有引用数据类型的大小比较，指定了一个标准接口：<code>java.lang.Comparable</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.lang;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Comparable</span>&#123;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(Object obj)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>步骤</p>
+</li>
+<li><ul>
+<li>第一步：实现java.lang.Comparable接口，并重写方法，方法体是如何比较当前对象和指定的另一个对象的大小</li>
+<li>第二步：对象比较大小时，通过对象调用compareTo方法，根据方法的返回值决定谁大谁小</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>this对象（调用compareTo方法的对象）大于指定对象（传入compareTo()的参数对象）返回正整数</li>
+<li>this对象（调用compareTo方法的对象）小于指定对象（传入compareTo()的参数对象）返回负整数</li>
+<li>this对象（调用compareTo方法的对象）等于指定对象（传入compareTo()的参数对象）返回零</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2、java-util-Comparator"><a href="#2、java-util-Comparator" class="headerlink" title="2、java.util.Comparator"></a>2、java.util.Comparator</h2><ul>
+<li>JDK在设计类库之初，考虑到对外比较的情况，所以又增加了一个接口：<code>java.util.Comparator</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.util;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Comparator</span>&#123;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Object o1,Object o2)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>步骤</p>
+</li>
+<li><ul>
+<li>第一步：编写一个类，我们称之为比较器类型，实现java.util.Comparator接口，并重写方法</li>
+<li>第二步：比较大小时，通过比较器类型的对象调用compare()方法，将要比较大小的两个对象作为compare方法的实参传入，根据方法的返回值决定谁大谁小</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>o1对象大于o2返回正整数</li>
+<li>o1对象小于o2返回负整数</li>
+<li>o1对象等于o2返回零</li>
+</ul>
+</li>
+<li></li>
+<li></li>
+<li><h1 id="一、注解概述"><a href="#一、注解概述" class="headerlink" title="一、注解概述"></a>一、注解概述</h1></li>
+<li><ul>
+<li>注解是可以被编译器或其他程序读取的一种注释，程序还可以根据注解的不同，做出相应的处理（从JDK5.0开始引入）</li>
+<li>注解是以<code>@注释名</code>在代码中存在的，还可以添加一些参数值</li>
+<li>一个完整的注解应该包含三个部分：声明、使用、读取</li>
+</ul>
+</li>
+<li><h1 id="二、三个基本注解"><a href="#二、三个基本注解" class="headerlink" title="二、三个基本注解"></a>二、三个基本注解</h1></li>
+<li><ul>
+<li><code>@Override</code>：用于检测被修饰的方法为有效的重写方法</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>修饰范围：方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><code>@Deprecated</code>：用于表示被标记的数据已经过时，不建议使用。</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>修饰范围：包、类、构造、属性、方法、参数、局部变量</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><code>@SuppressWarnings</code>：抑制编译警告</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>修饰范围：类、构造、属性、方法、参数、局部变量</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h1 id="三、JUnit"><a href="#三、JUnit" class="headerlink" title="三、JUnit"></a>三、JUnit</h1></li>
+<li><p>JUnit一个回归测试框架，供Java开发人员编写单元测试之用，JUnit测试是程序员测试，即所谓白盒测试，多数Java的开发环境都已经集成了JUnit作为单元测试的工具</p>
+</li>
+<li><h2 id="1、Junit导入"><a href="#1、Junit导入" class="headerlink" title="1、Junit导入"></a>1、Junit导入</h2></li>
+<li><ul>
+<li>要使用JUnit，必须在项目的编译路径中必须引入JUnit的库，即相关的.class文件组成的jar包</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>本地导入</li>
+<li>maven仓库（统一管理所有第三方框架和工具组件的jar）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h2 id="2、Junit常用注解"><a href="#2、Junit常用注解" class="headerlink" title="2、Junit常用注解"></a>2、Junit常用注解</h2></li>
+<li><ul>
+<li>@Test 对当前方法进行单元测试</li>
+<li>@Befor（非静态） &#x2F; @Beforclass（静态）：在@test前运行的方法</li>
+<li>@After（非静态） &#x2F; @Afterclass（静态）：在@test后运行的方法</li>
+</ul>
+</li>
+<li><p>单元测试和main方法区别：  </p>
+</li>
+<li><ul>
+<li>单元测试：相对路径是当前模块</li>
+<li>main方法：相对路径是当前工程</li>
+</ul>
+</li>
+<li><h2 id="3、运行-Test单元测试方法"><a href="#3、运行-Test单元测试方法" class="headerlink" title="3、运行@Test单元测试方法"></a>3、运行@Test单元测试方法</h2></li>
+<li><ul>
+<li>JUnit4版本，要求<code>@Test</code>标记的方法必须满足如下要求</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>所在的类必须是public，非抽象，包含唯一的无参构造</li>
+<li>方法本身必须是public，非抽象，非静态的，void无返回值，()无参数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h2 id="4、设置JUnit支持控制台输入"><a href="#4、设置JUnit支持控制台输入" class="headerlink" title="4、设置JUnit支持控制台输入"></a>4、设置JUnit支持控制台输入</h2></li>
+<li><ul>
+<li>在idea64.exe.vmoptions配置文件中加入设置：<code>-Deditable.java.test.console=true</code>，重启idea后生效</li>
+</ul>
+</li>
+<li><h1 id="四、元注解"><a href="#四、元注解" class="headerlink" title="四、元注解"></a>四、元注解</h1></li>
+<li><ul>
+<li>元注解：修饰注解的注解</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>@Target：用于描述注解的使用范围</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>可以通过枚举类型ElementType的10个常量对象来指定</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>@Retention：用于描述注解的生命周期</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>可以通过枚举类型RetentionPolicy的3个常量对象来指定：SOURCE（源代码）、CLASS（字节码）、RUNTIME（运行时）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>@Documented：表明这个注解应该被 javadoc工具记录</li>
+<li>@Inherited：允许子类继承父类中的注解</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h1 id="五、自定义注解"><a href="#五、自定义注解" class="headerlink" title="五、自定义注解"></a>五、自定义注解</h1></li>
+<li><pre><code class="java">【元注解】
+【修饰符】 @interface 注解名&#123;
+    【成员列表】
+&#125;
+</code></pre>
+</li>
+<li><ul>
+<li>自定义注解可以通过四个元注解分别说明它的声明周期，使用位置，是否被继承，是否被生成到API文档中</li>
+<li>声明注解：注解成员在注解定义中以无参数有返回值的抽象方法的形式来声明，又称为配置参数</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>返回值类型：八种基本数据类型、String类型、Class类型、enum类型、Annotation类型、以上所有类型的数组</li>
+<li>声明格式：<code>public 数据类型 方法名() 【default 默认值】</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li>使用注解：如果定义的注解含有抽象方法，那么使用时必须指定返回值，除非它有默认值（default关键字）</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>使用格式：<code>方法名 = 返回值</code></li>
+<li>如果只有一个抽象方法需要赋值，且方法名为<code>value</code>，则可以省略方法名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://wuqiuxu.github.io">Wuqiuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://wuqiuxu.github.io/post/76720176.html">https://wuqiuxu.github.io/post/76720176.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://wuqiuxu.github.io" target="_blank">妙妙屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a></div><div class="post_share"><div class="social-share" data-image="/img/java.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/f495a96f.html" title="Java异常"><img class="cover" src="/img/java.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java异常</div></div></a></div><div class="next-post pull-right"><a href="/post/6d54f4ae.html" title="Java面向对象及三大特性"><img class="cover" src="/img/java.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java面向对象及三大特性</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/59ae8782.html" title="Java IO流"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java IO流</div></div></a></div><div><a href="/post/f495a96f.html" title="Java异常"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java异常</div></div></a></div><div><a href="/post/fa358471.html" title="Java反射"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java反射</div></div></a></div><div><a href="/post/ea538f2a.html" title="Java基础语法"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java基础语法</div></div></a></div><div><a href="/post/a2c3ad19.html" title="Java多线程"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java多线程</div></div></a></div><div><a href="/post/1630b670.html" title="Java常用API"><img class="cover" src="/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Java常用API</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wuqiuxu</div><div class="author-info__description">鸟随鸾凤飞腾远</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wuqiuxu" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fa-brands fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://i.postimg.cc/660kspWH/image.jpg" rel="external nofollow noreferrer" target="_blank" title="Wechat"><i class="fa-brands fa-weixin" style="color: #05DC6C;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">一、枚举类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%9E%9A%E4%B8%BE%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">2.</span> <span class="toc-text">二、枚举注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">三、枚举类常用方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%8E%A5%E5%8F%A3%E6%88%90%E5%91%98"><span class="toc-number">4.</span> <span class="toc-text">四、接口成员</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.</span> <span class="toc-text">五、接口的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%A4%9A%E5%AE%9E%E7%8E%B0%EF%BC%88implements%EF%BC%89"><span class="toc-number">5.1.</span> <span class="toc-text">1、接口的多实现（implements）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%A4%9A%E7%BB%A7%E6%89%BF-%EF%BC%88extends"><span class="toc-number">5.2.</span> <span class="toc-text">2、接口的多继承  （extends)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98"><span class="toc-number">6.</span> <span class="toc-text">六、接口的冲突问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E7%BB%8F%E5%85%B8%E6%8E%A5%E5%8F%A3%E4%BB%8B%E7%BB%8D"><span class="toc-number">7.</span> <span class="toc-text">七、经典接口介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81java-lang-Comparable"><span class="toc-number">7.1.</span> <span class="toc-text">1、java.lang.Comparable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81java-util-Comparator"><span class="toc-number">7.2.</span> <span class="toc-text">2、java.util.Comparator</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%B3%A8%E8%A7%A3%E6%A6%82%E8%BF%B0"><span class="toc-number">8.</span> <span class="toc-text">一、注解概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%B8%89%E4%B8%AA%E5%9F%BA%E6%9C%AC%E6%B3%A8%E8%A7%A3"><span class="toc-number">9.</span> <span class="toc-text">二、三个基本注解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81JUnit"><span class="toc-number">10.</span> <span class="toc-text">三、JUnit</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81Junit%E5%AF%BC%E5%85%A5"><span class="toc-number">10.1.</span> <span class="toc-text">1、Junit导入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81Junit%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="toc-number">10.2.</span> <span class="toc-text">2、Junit常用注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E8%BF%90%E8%A1%8C-Test%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95"><span class="toc-number">10.3.</span> <span class="toc-text">3、运行@Test单元测试方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E8%AE%BE%E7%BD%AEJUnit%E6%94%AF%E6%8C%81%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%85%A5"><span class="toc-number">10.4.</span> <span class="toc-text">4、设置JUnit支持控制台输入</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%85%83%E6%B3%A8%E8%A7%A3"><span class="toc-number">11.</span> <span class="toc-text">四、元注解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3"><span class="toc-number">12.</span> <span class="toc-text">五、自定义注解</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/220d6902.html" title="【爬虫】request模块"><img src="/img/python.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【爬虫】request模块"/></a><div class="content"><a class="title" href="/post/220d6902.html" title="【爬虫】request模块">【爬虫】request模块</a><time datetime="2023-06-21T03:31:05.000Z" title="发表于 2023-06-21 11:31:05">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/72df7e3d.html" title="【爬虫】jsonpath&amp;lxml模块"><img src="/img/python.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【爬虫】jsonpath&amp;lxml模块"/></a><div class="content"><a class="title" href="/post/72df7e3d.html" title="【爬虫】jsonpath&amp;lxml模块">【爬虫】jsonpath&amp;lxml模块</a><time datetime="2023-06-21T03:30:54.000Z" title="发表于 2023-06-21 11:30:54">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ad70de59.html" title="【爬虫】selenium框架"><img src="/img/python.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【爬虫】selenium框架"/></a><div class="content"><a class="title" href="/post/ad70de59.html" title="【爬虫】selenium框架">【爬虫】selenium框架</a><time datetime="2023-06-21T03:30:37.000Z" title="发表于 2023-06-21 11:30:37">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/267d77a9.html" title="【爬虫】反爬技巧"><img src="/img/python.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【爬虫】反爬技巧"/></a><div class="content"><a class="title" href="/post/267d77a9.html" title="【爬虫】反爬技巧">【爬虫】反爬技巧</a><time datetime="2023-06-21T03:30:21.000Z" title="发表于 2023-06-21 11:30:21">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/16150d97.html" title="【爬虫】验证码处理方案"><img src="/img/python.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【爬虫】验证码处理方案"/></a><div class="content"><a class="title" href="/post/16150d97.html" title="【爬虫】验证码处理方案">【爬虫】验证码处理方案</a><time datetime="2023-06-21T03:30:00.000Z" title="发表于 2023-06-21 11:30:00">2023-06-21</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/default.png')"><div id="footer-wrap"><div class="copyright">&copy;2023 By Wuqiuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addModeChange('mermaid', runMermaid)
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>

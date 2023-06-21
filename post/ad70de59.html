@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【爬虫】selenium框架 | 妙妙屋</title><meta name="author" content="Wuqiuxu"><meta name="copyright" content="Wuqiuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="一、requests模块简介 作用：发送http请求，获取响应数据 优点：相对于urllib模块，requests模块更简洁易懂  二、requests模块常用方法和属性1、常用方法（发起请求）（1）get方法 使用方式：response &#x3D; requests.get(url)  常用参数：headers、params、cookies、timeout、proxy、verify  headers请求">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【爬虫】selenium框架">
+<meta property="og:url" content="https://wuqiuxu.github.io/post/ad70de59.html">
+<meta property="og:site_name" content="妙妙屋">
+<meta property="og:description" content="一、requests模块简介 作用：发送http请求，获取响应数据 优点：相对于urllib模块，requests模块更简洁易懂  二、requests模块常用方法和属性1、常用方法（发起请求）（1）get方法 使用方式：response &#x3D; requests.get(url)  常用参数：headers、params、cookies、timeout、proxy、verify  headers请求">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wuqiuxu.github.io/img/python.png">
+<meta property="article:published_time" content="2023-06-21T03:30:37.000Z">
+<meta property="article:modified_time" content="2023-06-21T03:52:29.655Z">
+<meta property="article:author" content="Wuqiuxu">
+<meta property="article:tag" content="Selenium">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wuqiuxu.github.io/img/Psyduck.png"><link rel="shortcut icon" href="/img/Psyduck.png"><link rel="canonical" href="https://wuqiuxu.github.io/post/ad70de59.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?5bacdf5f7eaeeca2624a134c063a96c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"V9Z0XHM9DP","apiKey":"fa27b7a048b6171f01dadf98cba8a3fd","indexName":"blog","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":0,"languages":{"author":"作者: Wuqiuxu","link":"链接: ","source":"来源: 妙妙屋","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【爬虫】selenium框架',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-21 11:52:29'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4125923_iosihe4hf8q.css"><link rel="stylesheet" href="/css/myCss.css"><script src="https://code.jquery.com/jquery-1.7.2.min.js"></script><script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/planet/"><i class="fa-fw fa-solid fa-book"></i><span> 知识星球</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 创作集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/crawler/"><i class="fa-fw fa-solid fa-spider"></i><span> 爬虫</span></a></li><li><a class="site-page child" href="/datadev/"><i class="fa-fw fa-solid fa-database"></i><span> 数据开发</span></a></li><li><a class="site-page child" href="/dataanal/"><i class="fa-fw fa-solid fa-chart-simple"></i><span> 数据分析</span></a></li><li><a class="site-page child" href="/improve/"><i class="fa-fw fa-solid fa-clock"></i><span> 工作提效</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-book"></i><span> 文档&amp;工具</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-user"></i><span> 关于博主</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/default.png')"><nav id="nav"><span id="blog-info"><a href="/" title="妙妙屋"><img class="site-icon" src="/img/Psyduck.png"/><span class="site-name">妙妙屋</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/planet/"><i class="fa-fw fa-solid fa-book"></i><span> 知识星球</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 创作集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/crawler/"><i class="fa-fw fa-solid fa-spider"></i><span> 爬虫</span></a></li><li><a class="site-page child" href="/datadev/"><i class="fa-fw fa-solid fa-database"></i><span> 数据开发</span></a></li><li><a class="site-page child" href="/dataanal/"><i class="fa-fw fa-solid fa-chart-simple"></i><span> 数据分析</span></a></li><li><a class="site-page child" href="/improve/"><i class="fa-fw fa-solid fa-clock"></i><span> 工作提效</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-book"></i><span> 文档&amp;工具</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-user"></i><span> 关于博主</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【爬虫】selenium框架</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-21T03:30:37.000Z" title="发表于 2023-06-21 11:30:37">2023-06-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-21T03:52:29.655Z" title="更新于 2023-06-21 11:52:29">2023-06-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【爬虫】selenium框架"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一、requests模块简介"><a href="#一、requests模块简介" class="headerlink" title="一、requests模块简介"></a>一、requests模块简介</h1><ul>
+<li><strong>作用</strong>：发送http请求，获取响应数据</li>
+<li><strong>优点</strong>：相对于urllib模块，requests模块更简洁易懂</li>
+</ul>
+<h1 id="二、requests模块常用方法和属性"><a href="#二、requests模块常用方法和属性" class="headerlink" title="二、requests模块常用方法和属性"></a>二、requests模块常用方法和属性</h1><h2 id="1、常用方法（发起请求）"><a href="#1、常用方法（发起请求）" class="headerlink" title="1、常用方法（发起请求）"></a>1、常用方法（发起请求）</h2><h3 id="（1）get方法"><a href="#（1）get方法" class="headerlink" title="（1）get方法"></a>（1）get方法</h3><ul>
+<li><strong>使用方式</strong>：<code>response = requests.get(url)</code> </li>
+<li><strong>常用参数</strong>：headers、params、cookies、timeout、proxy、verify</li>
+</ul>
+<p><strong>headers请求头</strong></p>
+<ul>
+<li>作用：模拟浏览器</li>
+<li>构造方式：构造headers字典（’请求头字段名’:’字段对应的值’）</li>
+<li>使用方法：<code>response = requests.get(url, headers = headers)</code></li>
+<li>常用请求头：[User-Agent]、[Referer]、[Cookie]</li>
+<li>非常用请求头：[Content-Type]、[Host]、[Connection]、[Upgrade-Insecure-Requests]、[Authorization]</li>
+</ul>
+<p>*[User-Agent]:浏览器名称<br>*[Referer]:页面跳转处<br>*[Cookie]:用户数据<br>*[Content-Type]:内容类型<br>*[Host]:主机和端口号<br>*[Connection]:链接类型<br>*[Upgrade-Insecure-Requests]:升级为HTTPS请求<br>*[Authorization]:表示HTTP协议中需要认证资源的认证信息</p>
+<p><strong>params携带参数</strong></p>
+<ul>
+<li>作用：携带url参数字典</li>
+<li>构造方式：构造params字典（’参数名’:’参数值’）</li>
+<li>使用方法：<code>response = requests.get(url, params = params)</code></li>
+<li>params替代方式：直接对含有参数的url发起请求</li>
+</ul>
+<p><strong>cookies参数</strong></p>
+<ul>
+<li>作用：身份验证</li>
+<li>构造方式：构造cookies字典（’Cookie名’:’Cookie值’），以<code>;</code>、<code>空格</code>分割每一对键值对</li>
+<li>使用方法：<code>response = requests.get(url, cookies)</code></li>
+<li>注意：cookie一般是有过期时间的，一旦过期需要重新获取</li>
+<li>将cookie字符串转换为cookies参数所需的字典：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cookies_dict = &#123;cookie.split(<span class="string">&#x27;=&#x27;</span>)[<span class="number">0</span>]:cookie.split(<span class="string">&#x27;=&#x27;</span>)[-<span class="number">1</span>] <span class="keyword">for</span> cookie <span class="keyword">in</span> cookies_str.split(<span class="string">&#x27;; &#x27;</span>)&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>timeout超时参数</strong></p>
+<ul>
+<li>作用：对请求进行强制要求，必须在特定的时间内返回结果，否则报错</li>
+<li>使用方法：<code>response = requests.get(url, timeout = 3)</code>，这里timeout&#x3D;3表示发送请求后，3秒钟内返回响应，否则就抛出异常</li>
+</ul>
+<p><strong>proxy代理参数</strong></p>
+<ul>
+<li>作用：为了防止频繁向一个域名发送请求导致ip被封，所以我们需要使用代理ip</li>
+<li>构造方式：构造proxy字典（’代理类型’:’代理类型:ip地址:端口号’）</li>
+<li>使用方法：<code>response = requests.get(url, proxies=proxies)</code></li>
+</ul>
+<p><strong>verify忽略CA证书参数</strong></p>
+<ul>
+<li>作用：忽略网站的CA证书页面</li>
+<li>使用方法：<code>response = requests.get(url,verify=False)</code><br><img src="https://cdn.nlark.com/yuque/0/2023/png/22414596/1673450988362-bdf08689-da38-41b8-b288-ce6730c08b46.png" alt="img"></li>
+</ul>
+<h3 id="（2）post方法"><a href="#（2）post方法" class="headerlink" title="（2）post方法"></a>（2）post方法</h3><ul>
+<li><strong>常用场景</strong>：登陆注册（post更安全）、传输大量文本内容（post对数据长度没有要求） </li>
+<li><strong>使用方式</strong>：<code>response = requests.post(url, data)</code> </li>
+<li><strong>常用参数</strong>：data、headers、params、cookies、timeout、proxy、verify</li>
+</ul>
+<p><strong>data参数</strong></p>
+<ul>
+<li>作用：传递请求的数据</li>
+<li>构造方式：构造data字典（’data名’:’data值’）</li>
+<li>使用方法：<code>response = requests.post(url, data)</code></li>
+</ul>
+<p><strong>其他参数</strong><br>与get请求一致</p>
+<h2 id="2、常用属性（响应对象）"><a href="#2、常用属性（响应对象）" class="headerlink" title="2、常用属性（响应对象）"></a>2、常用属性（响应对象）</h2><ul>
+<li><code>response.text</code> str类型的响应文本（解码类型： requests模块自动根据HTTP 头部对响应的编码推测的文本编码）</li>
+<li><code>response.content</code> bytes类型的响应文本（解码类型： 没有指定）</li>
+<li><code>response.content.decode()</code> 解决中文乱码问题（默认utf-8）</li>
+<li><code>response.status_code</code> 响应状态码</li>
+<li><code>response.headers</code> 响应头</li>
+<li><code>response.url</code> 响应url（有时候响应的url和请求的url并不一致）</li>
+<li><code>response.cookies</code> 响应cookie（经过了set-cookie动作，返回cookieJar类型）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cookieJar类型转换为cookies字典</span></span><br><span class="line">cookies_dict = requests.utils.dict_from_cookiejar(response.cookies)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><code>response.json()</code> 自动将json字符串类型的响应内容转换为python对象（dict or list）</li>
+<li><code>response.request.headers</code> 响应对应的请求头</li>
+<li><code>response.request._cookies</code> 响应对应的请求cookie（返回cookieJar类型）</li>
+</ul>
+<h1 id="三、requests模块常用对象"><a href="#三、requests模块常用对象" class="headerlink" title="三、requests模块常用对象"></a>三、requests模块常用对象</h1><h2 id="1、session对象"><a href="#1、session对象" class="headerlink" title="1、session对象"></a>1、session对象</h2><ul>
+<li><strong>作用</strong>：自动处理cookie，下一次请求会带上前一次的cookie </li>
+<li><strong>常用场景</strong>：自动处理连续多次请求过程中产生的cookie </li>
+<li><strong>使用方式</strong>：<code>session = requests.session()</code>，session对象发送get或post请求的参数，与requests模块发送请求的参数完全一致</li>
+</ul>
+<h1 id="四、实战演练"><a href="#四、实战演练" class="headerlink" title="四、实战演练"></a>四、实战演练</h1><h2 id="POST请求——有道翻译"><a href="#POST请求——有道翻译" class="headerlink" title="POST请求——有道翻译"></a>POST请求——有道翻译</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json <span class="keyword">as</span> js</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">king</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,word</span>):</span><br><span class="line">        self.url = <span class="string">&#x27;https://fanyi.youdao.com/translate?smartresult=dict&amp;smartresult=rule&#x27;</span></span><br><span class="line">        self.headers = &#123;</span><br><span class="line">           <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        self.word = word</span><br><span class="line">        self.data = &#123;</span><br><span class="line">            <span class="string">&#x27;i&#x27;</span>: self.word,</span><br><span class="line">            <span class="string">&#x27;from&#x27;</span>: <span class="string">&#x27;AUTO&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;to&#x27;</span>: <span class="string">&#x27;AUTO&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;smartresult&#x27;</span>: <span class="string">&#x27;dict&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;client&#x27;</span>: <span class="string">&#x27;fanyideskweb&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;salt&#x27;</span>: <span class="string">&#x27;16534734202228&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;sign&#x27;</span>: <span class="string">&#x27;a69ac558a76e563a31b6c3a204c8b257&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;lts&#x27;</span>: <span class="string">&#x27;1653473420222&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;bv&#x27;</span>: <span class="string">&#x27;25412fa435d3225e27363d5c00ce51ba&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;doctype&#x27;</span>: <span class="string">&#x27;json&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;version&#x27;</span>: <span class="string">&#x27;2.1&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;keyfrom&#x27;</span>: <span class="string">&#x27;fanyi.web&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;action&#x27;</span>: <span class="string">&#x27;FY_BY_REALTlME&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_data</span>(<span class="params">self</span>):</span><br><span class="line">        response = requests.post(self.url,data=self.data,headers=self.headers)</span><br><span class="line">        <span class="keyword">return</span> response.content.decode()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">parse_data</span>(<span class="params">self,data</span>):</span><br><span class="line">        dict_data = js.loads(data)</span><br><span class="line">        <span class="built_in">print</span>(dict_data[<span class="string">&#x27;translateResult&#x27;</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="string">&#x27;tgt&#x27;</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">self</span>):</span><br><span class="line">        response = self.get_data()</span><br><span class="line"><span class="comment">#         print(response)</span></span><br><span class="line">        self.parse_data(response)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    word = <span class="built_in">input</span>(<span class="string">&#x27;请输入要翻译的单词：&#x27;</span>)</span><br><span class="line">    king = king(word)</span><br><span class="line">    king.run()</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://wuqiuxu.github.io">Wuqiuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://wuqiuxu.github.io/post/ad70de59.html">https://wuqiuxu.github.io/post/ad70de59.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://wuqiuxu.github.io" target="_blank">妙妙屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Selenium/">Selenium</a></div><div class="post_share"><div class="social-share" data-image="/img/python.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/72df7e3d.html" title="【爬虫】jsonpath&amp;lxml模块"><img class="cover" src="/img/python.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【爬虫】jsonpath&amp;lxml模块</div></div></a></div><div class="next-post pull-right"><a href="/post/267d77a9.html" title="【爬虫】反爬技巧"><img class="cover" src="/img/python.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【爬虫】反爬技巧</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Wuqiuxu</div><div class="author-info__description">鸟随鸾凤飞腾远</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Wuqiuxu" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fa-brands fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://i.postimg.cc/660kspWH/image.jpg" rel="external nofollow noreferrer" target="_blank" title="Wechat"><i class="fa-brands fa-weixin" style="color: #05DC6C;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81requests%E6%A8%A1%E5%9D%97%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">一、requests模块简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81requests%E6%A8%A1%E5%9D%97%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">二、requests模块常用方法和属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E5%8F%91%E8%B5%B7%E8%AF%B7%E6%B1%82%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">1、常用方法（发起请求）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89get%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.1.</span> <span class="toc-text">（1）get方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89post%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.2.</span> <span class="toc-text">（2）post方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7%EF%BC%88%E5%93%8D%E5%BA%94%E5%AF%B9%E8%B1%A1%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">2、常用属性（响应对象）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81requests%E6%A8%A1%E5%9D%97%E5%B8%B8%E7%94%A8%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text">三、requests模块常用对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81session%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.1.</span> <span class="toc-text">1、session对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%9E%E6%88%98%E6%BC%94%E7%BB%83"><span class="toc-number">4.</span> <span class="toc-text">四、实战演练</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#POST%E8%AF%B7%E6%B1%82%E2%80%94%E2%80%94%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91"><span class="toc-number">4.1.</span> <span class="toc-text">POST请求——有道翻译</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/220d6902.html" title="【爬虫】request模块"><img src="/img/python.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【爬虫】request模块"/></a><div class="content"><a class="title" href="/post/220d6902.html" title="【爬虫】request模块">【爬虫】request模块</a><time datetime="2023-06-21T03:31:05.000Z" title="发表于 2023-06-21 11:31:05">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/72df7e3d.html" title="【爬虫】jsonpath&amp;lxml模块"><img src="/img/python.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【爬虫】jsonpath&amp;lxml模块"/></a><div class="content"><a class="title" href="/post/72df7e3d.html" title="【爬虫】jsonpath&amp;lxml模块">【爬虫】jsonpath&amp;lxml模块</a><time datetime="2023-06-21T03:30:54.000Z" title="发表于 2023-06-21 11:30:54">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ad70de59.html" title="【爬虫】selenium框架"><img src="/img/python.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【爬虫】selenium框架"/></a><div class="content"><a class="title" href="/post/ad70de59.html" title="【爬虫】selenium框架">【爬虫】selenium框架</a><time datetime="2023-06-21T03:30:37.000Z" title="发表于 2023-06-21 11:30:37">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/267d77a9.html" title="【爬虫】反爬技巧"><img src="/img/python.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【爬虫】反爬技巧"/></a><div class="content"><a class="title" href="/post/267d77a9.html" title="【爬虫】反爬技巧">【爬虫】反爬技巧</a><time datetime="2023-06-21T03:30:21.000Z" title="发表于 2023-06-21 11:30:21">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/16150d97.html" title="【爬虫】验证码处理方案"><img src="/img/python.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【爬虫】验证码处理方案"/></a><div class="content"><a class="title" href="/post/16150d97.html" title="【爬虫】验证码处理方案">【爬虫】验证码处理方案</a><time datetime="2023-06-21T03:30:00.000Z" title="发表于 2023-06-21 11:30:00">2023-06-21</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/default.png')"><div id="footer-wrap"><div class="copyright">&copy;2023 By Wuqiuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addModeChange('mermaid', runMermaid)
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>
